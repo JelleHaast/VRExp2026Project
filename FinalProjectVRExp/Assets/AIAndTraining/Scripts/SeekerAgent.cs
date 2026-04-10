@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using NUnit.Framework;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -14,54 +15,73 @@ public class SeekerAgent : Agent
 
     public float speedMultiplier = 5f;
 
-    float previousDistance;
-    float distanceToHider;
-
     Rigidbody rb;
 
-    public Transform[] roomCenters; //multiple room spanws
+    public Transform[] hiderSpawnPoints;
 
-    void Start() { rb = GetComponent<Rigidbody>(); }
+    public Transform seekerStart;
+
+    float previousDistance;
+    float currentDistance;
+
+    int seekerLocation;
+    float wallContactTime = 0f;
+
+    //public Transform[] seekerLocations; //multiple room spanws
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.linearDamping = 1f;
+        rb.angularDamping = 1f;
+    }
     public override void OnEpisodeBegin()
     {
-        // Pick random rooms, make sure seeker and target aren't in same room
-        int seekerRoom = Random.Range(0, 4);
 
-        int hiderRoom = Random.Range(0, 4);
+        transform.position = seekerStart.position;
+        transform.rotation = seekerStart.rotation;
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
 
-        while (hiderRoom == seekerRoom)
-            hiderRoom = Random.Range(0, 4);
 
-        transform.position = GetRandomSpawnInRoom(roomCenters[seekerRoom]);
-        hider.position = GetRandomSpawnInRoom(roomCenters[hiderRoom]);
+        int hiderLocation = Random.Range(0, hiderSpawnPoints.Length);
+        int seekerLocation;
+
+        do
+        {
+            seekerLocation = Random.Range(0, hiderSpawnPoints.Length);
+        } while (hiderLocation == seekerLocation);
+
+        rb.position = hiderSpawnPoints[seekerLocation].position;
+        hider.position = hiderSpawnPoints[hiderLocation].position;
 
         previousDistance = Vector3.Distance(transform.position, hider.position);
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        Vector3 relativePos = hider.position - transform.position;
-        float distance = relativePos.magnitude;
-
-        sensor.AddObservation(relativePos.normalized);
-        sensor.AddObservation(distance / 50f);
+        sensor.AddObservation(rb.linearVelocity / speedMultiplier);  // normalized velocity
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        // 1. Tiny time penalty to keep him moving
         AddReward(-0.0005f);
 
-        distanceToHider = Vector3.Distance(transform.position, hider.position);
-        float delta = previousDistance - distanceToHider;
-        AddReward(delta * 0.0005f); // Positive when closer, negative when farther
-        previousDistance = distanceToHider; // Always update
+        // Calculate current distance
+        currentDistance = Vector3.Distance(transform.position, hider.position);
 
-        // 3. Movement (Keep as is)
+        // Reward moving closer
+        AddReward((previousDistance - currentDistance) * 0.005f); //(0.05 traing default)
+
+        // Update for next step
+        previousDistance = currentDistance;
+
         float rotation = actionBuffers.ContinuousActions[0];
         float forward = actionBuffers.ContinuousActions[1];
-        transform.Rotate(0f, rotation * rotationMultiplier, 0f);
-        rb.linearVelocity = transform.forward * forward * speedMultiplier;
+
+        rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, rotation * rotationMultiplier, 0f));
+        Vector3 move = transform.forward * forward * speedMultiplier * Time.deltaTime;
+        rb.MovePosition(rb.position + move);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -71,26 +91,20 @@ public class SeekerAgent : Agent
         continuousActionsOut[1] = Input.GetAxis("Vertical");
     }
 
-    Vector3 GetRandomSpawnInRoom(Transform roomCenter)
+
+    void OnCollisionStay(Collision collision)
     {
-        return new Vector3(
-            roomCenter.position.x + Random.Range(-3f, 3f),
-            0.5f,
-            roomCenter.position.z + Random.Range(-3f, 3f)
-        );
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("wallcontacttime" + wallContactTime);
+            wallContactTime += Time.fixedDeltaTime;
+            AddReward(-0.002f * wallContactTime);
+        }
     }
 
-
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Hider"))
-        {
-            AddReward(5f);
-            EndEpisode();
-        }
-        else if (collision.gameObject.CompareTag("Wall"))
-        {
-            AddReward(-0.05f);
-        }
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Obstacle"))
+            wallContactTime = 0f;
     }
 }

@@ -1,0 +1,29 @@
+{
+    "Seeker": {
+        "checkpoints": [
+            {
+                "steps": 57312,
+                "file_path": "results\\run3obstacles\\Seeker\\Seeker-57312.onnx",
+                "reward": 5.138389023286956,
+                "creation_time": 1775731719.5560877,
+                "auxillary_file_paths": [
+                    "results\\run3obstacles\\Seeker\\Seeker-57312.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 57312,
+            "file_path": "results\\run3obstacles\\Seeker.onnx",
+            "reward": 5.138389023286956,
+            "creation_time": 1775731719.5560877,
+            "auxillary_file_paths": [
+                "results\\run3obstacles\\Seeker\\Seeker-57312.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

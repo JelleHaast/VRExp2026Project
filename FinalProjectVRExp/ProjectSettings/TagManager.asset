@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Floor
   - Hallway
+  - Obstacle
   layers:
   - Default
   - TransparentFX
