@@ -280,7 +280,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 15000
+  MaxStep: 10000
   hider: {fileID: 0}
   rotationMultiplier: 2.5
   speedMultiplier: 6
@@ -293,7 +293,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  seekerStart: {fileID: 0}
 --- !u!114 &434727322991709880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,13 +310,13 @@ MonoBehaviour:
   - Hider
   - Wall
   - Obstacle
-  m_RaysPerDirection: 5
+  m_RaysPerDirection: 20
   m_MaxRayDegrees: 70
   m_SphereCastRadius: 0.4
   m_RayLength: 20
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967291
+    m_Bits: 31
   m_ObservationStacks: 1
   m_AlternatingRayOrder: 1
   m_UseBatchedRaycasts: 0

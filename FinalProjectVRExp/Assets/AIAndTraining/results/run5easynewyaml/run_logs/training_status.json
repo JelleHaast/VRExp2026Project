@@ -1,0 +1,29 @@
+{
+    "Seeker": {
+        "checkpoints": [
+            {
+                "steps": 57840,
+                "file_path": "results\\run5easynewyaml\\Seeker\\Seeker-57840.onnx",
+                "reward": 3.897712752223015,
+                "creation_time": 1775833153.5816677,
+                "auxillary_file_paths": [
+                    "results\\run5easynewyaml\\Seeker\\Seeker-57840.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 57840,
+            "file_path": "results\\run5easynewyaml\\Seeker.onnx",
+            "reward": 3.897712752223015,
+            "creation_time": 1775833153.5816677,
+            "auxillary_file_paths": [
+                "results\\run5easynewyaml\\Seeker\\Seeker-57840.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

@@ -19,13 +19,11 @@ public class SeekerAgent : Agent
 
     public Transform[] hiderSpawnPoints;
 
-    public Transform seekerStart;
 
     float previousDistance;
     float currentDistance;
 
     int seekerLocation;
-    float wallContactTime = 0f;
 
     //public Transform[] seekerLocations; //multiple room spanws
 
@@ -37,9 +35,6 @@ public class SeekerAgent : Agent
     }
     public override void OnEpisodeBegin()
     {
-
-        transform.position = seekerStart.position;
-        transform.rotation = seekerStart.rotation;
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
@@ -65,13 +60,13 @@ public class SeekerAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        AddReward(-0.0005f);
+        AddReward(-0.001f);
 
         // Calculate current distance
         currentDistance = Vector3.Distance(transform.position, hider.position);
 
         // Reward moving closer
-        AddReward((previousDistance - currentDistance) * 0.005f); //(0.05 traing default)
+        AddReward((previousDistance - currentDistance) * 0.05f); //(0.05 traing default)
 
         // Update for next step
         previousDistance = currentDistance;
@@ -92,19 +87,20 @@ public class SeekerAgent : Agent
     }
 
 
-    void OnCollisionStay(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Hider"))
         {
-            Debug.Log("wallcontacttime" + wallContactTime);
-            wallContactTime += Time.fixedDeltaTime;
-            AddReward(-0.002f * wallContactTime);
+            AddReward(10f);
+            EndEpisode();
         }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Obstacle"))
-            wallContactTime = 0f;
+        else if (collision.gameObject.CompareTag("Wall"))
+        {
+            AddReward(-0.5f);
+        }
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            AddReward(-0.1f);  // shelves, slightly softer than walls (0.05 training default)
+        }
     }
 }
