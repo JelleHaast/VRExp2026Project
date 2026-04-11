@@ -244,10 +244,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 40959209}
     - target: {fileID: 6180215251135188254, guid: e1f902f2c0fd2494db4bf280ef9ec0fe, type: 3}
-      propertyPath: hiderSpawnPoints.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6180215251135188254, guid: e1f902f2c0fd2494db4bf280ef9ec0fe, type: 3}
       propertyPath: 'hiderSpawnPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1648118196}
@@ -316,7 +312,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6610140678054415279, guid: e1f902f2c0fd2494db4bf280ef9ec0fe, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1f902f2c0fd2494db4bf280ef9ec0fe, type: 3}

@@ -29,5 +29,5 @@ behaviors:
         encoding_size: 64
         learning_rate: 3.0e-4
     max_steps: 3000000
-    time_horizon: 64
+    time_horizon: 128
     summary_freq: 10000

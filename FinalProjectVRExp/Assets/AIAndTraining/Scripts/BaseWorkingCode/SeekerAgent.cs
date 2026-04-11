@@ -25,6 +25,8 @@ public class SeekerAgent : Agent
 
     int seekerLocation;
 
+    float obstacleContactTime = 0f;
+
     //public Transform[] seekerLocations; //multiple room spanws
 
     void Start()
@@ -37,6 +39,7 @@ public class SeekerAgent : Agent
     {
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        obstacleContactTime = 0f;
 
 
         int hiderLocation = Random.Range(0, hiderSpawnPoints.Length);
@@ -98,9 +101,21 @@ public class SeekerAgent : Agent
         {
             AddReward(-0.5f);
         }
-        else if (collision.gameObject.CompareTag("Obstacle"))
+
+    }
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
-            AddReward(-0.1f);  // shelves, slightly softer than walls (0.05 training default)
+            obstacleContactTime += Time.fixedDeltaTime;
+            float cappedTime = Mathf.Min(obstacleContactTime, 3f);
+            AddReward(-0.005f * cappedTime);
         }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+            obstacleContactTime = 0f;
     }
 }
