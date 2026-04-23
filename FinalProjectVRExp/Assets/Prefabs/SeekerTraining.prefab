@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 4387247670955063854}
   - component: {fileID: 5048482833643105765}
   - component: {fileID: 624652219944321043}
+  - component: {fileID: 6180215251135188254}
   - component: {fileID: 434727322991709880}
-  - component: {fileID: 684409417885963094}
+  - component: {fileID: 2048846071738035595}
   - component: {fileID: 7213120031093113414}
   - component: {fileID: 8988997719912048101}
-  - component: {fileID: 1969122184010190200}
   m_Layer: 0
-  m_Name: Seeker
+  m_Name: SeekerTraining
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,6 +127,32 @@ MonoBehaviour:
   m_UseChildActuators: 1
   m_DeterministicInference: 0
   m_ObservableAttributeHandling: 0
+--- !u!114 &6180215251135188254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743886348708290199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8581f4f749edc1489a1218b918fe3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeekerAgent
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 10000
+  hider: {fileID: 0}
+  rotationMultiplier: 2.5
+  speedMultiplier: 6
+  hiderSpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &434727322991709880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +184,7 @@ MonoBehaviour:
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0
---- !u!114 &684409417885963094
+--- !u!114 &2048846071738035595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,16 +193,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6743886348708290199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bd5215e93d21c944a680f4e4ed5ab54, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SeekerNavAgent
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  rotationMultiplier: 2
-  speedMultiplier: 5
-  hiderSpawnPoints: []
+  m_EditorClassIdentifier: Unity.ML-Agents::Unity.MLAgents.DecisionRequester
+  DecisionPeriod: 5
+  DecisionStep: 0
+  TakeActionsBetweenDecisions: 1
 --- !u!54 &7213120031093113414
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -227,18 +249,3 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1969122184010190200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6743886348708290199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.ML-Agents::Unity.MLAgents.DecisionRequester
-  DecisionPeriod: 5
-  DecisionStep: 0
-  TakeActionsBetweenDecisions: 1
