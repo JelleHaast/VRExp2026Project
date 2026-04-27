@@ -213,15 +213,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4890712401117462684, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.081
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4890712401117462684, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.66
+      value: 1.047
       objectReference: {fileID: 0}
     - target: {fileID: 4890712401117462684, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.079
+      value: 0.174
       objectReference: {fileID: 0}
     - target: {fileID: 7034033213459751645, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_IsActive
@@ -503,7 +503,7 @@ PrefabInstance:
       addedObject: {fileID: 604775681}
     - targetCorrespondingSourceObject: {fileID: 2914776904026195228, guid: fb162de0d384a4a4ea87c9a290f2209b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 604775684}
+      addedObject: {fileID: 604775683}
   m_SourcePrefab: {fileID: 100100000, guid: fb162de0d384a4a4ea87c9a290f2209b, type: 3}
 --- !u!4 &604775676 stripped
 Transform:
@@ -568,7 +568,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &604775684
+--- !u!114 &604775683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -577,10 +577,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 604775680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b31086630263a14486779ce52c5389d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bc319c2e8416a44a97b15f9c31226f4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AvatarBodyFollow
+  m_EditorClassIdentifier: Assembly-CSharp::AvatarAutoScaler
   vrCamera: {fileID: 1504578992}
+  avatarStandaardHoogte: 1.8
 --- !u!1 &654903263
 GameObject:
   m_ObjectHideFlags: 0
