@@ -1,6 +1,7 @@
 using Unity.XR.CoreUtils;
 using UnityEngine.Assertions;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Movement;
+using UnityEngine.InputSystem;
 
 namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 {
@@ -69,6 +70,16 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         [SerializeField]
         [Tooltip("Whether to use the specified head transform or left controller transform to direct the XR Origin's movement for the left hand.")]
         MovementDirection m_LeftHandMovementDirection;
+
+        [Space, Header("Sprint Settings")]
+        [SerializeField]
+        InputActionProperty m_SprintAction;
+
+        [SerializeField]
+        float m_WalkSpeed = 1f;
+
+        [SerializeField]
+        float m_RunSpeed = 3f;
 
         /// <summary>
         /// Whether to use the specified head transform or controller transform to direct the XR Origin's movement for the left hand.
@@ -171,6 +182,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                     break;
             }
 
+
+
             // Combine the two poses into the forward source based on the magnitude of input
             var leftHandValue = leftHandMoveInput.ReadValue();
             var rightHandValue = rightHandMoveInput.ReadValue();
@@ -184,7 +197,16 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             var combinedRotation = Quaternion.Slerp(m_RightMovementPose.rotation, m_LeftMovementPose.rotation, leftHandBlend);
             m_CombinedTransform.SetPositionAndRotation(combinedPosition, combinedRotation);
 
+            // Sprint check here - this runs every frame already!
+            if (m_SprintAction.action != null && m_SprintAction.action.IsPressed())
+                moveSpeed = m_RunSpeed;
+            else
+                moveSpeed = m_WalkSpeed;
+            Debug.Log(moveSpeed);
+
             return base.ComputeDesiredMove(input);
+
+
         }
     }
 }
