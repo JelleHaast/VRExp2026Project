@@ -13,7 +13,7 @@ public class SeekerAgent : Agent
 
     public float rotationMultiplier = 2f;
 
-    public float speedMultiplier = 5f;
+    public float speedMultiplier = 1f;
 
     Rigidbody rb;
 
