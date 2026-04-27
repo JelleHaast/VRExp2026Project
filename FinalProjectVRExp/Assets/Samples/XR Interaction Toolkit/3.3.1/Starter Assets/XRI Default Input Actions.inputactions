@@ -1416,7 +1416,7 @@
                 {
                     "name": "",
                     "id": "561ebba4-a1fd-46ba-b0ed-dd45910d68ef",
-                    "path": "<Keyboard>/anyKey",
+                    "path": "<XRController>{LeftHand}/thumbstickClicked",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
