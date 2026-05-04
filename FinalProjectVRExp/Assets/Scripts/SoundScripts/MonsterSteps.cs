@@ -1,17 +1,35 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterSteps : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioClip stepSound;
+    private NavMeshAgent nav;
 
-    // Deze functie wordt straks aangeroepen door je animatie
-    public void PlayStep()
+    void Start()
     {
-        if (audioSource != null && stepSound != null)
+        // Zoek de 'GPS' (NavMeshAgent) van het monster op de bovenliggende map
+        nav = GetComponentInParent<NavMeshAgent>();
+    }
+
+    void Update()
+    {
+        // Checkt of het monster daadwerkelijk beweegt (snelheid is groter dan 0.1)
+        if (nav.velocity.magnitude > 0.1f)
         {
-            // PlayOneShot zorgt ervoor dat meerdere stappen soepel door elkaar kunnen klinken
-            audioSource.PlayOneShot(stepSound);
+            // Als hij beweegt, maar het geluid staat nog uit, zet het dan aan!
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            // Als hij stilstaat, pauzeer het geluid direct
+            if (audioSource.isPlaying)
+            {
+                audioSource.Pause();
+            }
         }
     }
 }
