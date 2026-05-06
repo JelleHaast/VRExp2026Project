@@ -20300,24 +20300,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 998214411868958333, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2028680154}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
---- !u!1 &2028680153 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 998214411868958333, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-  m_PrefabInstance: {fileID: 2028680152}
-  m_PrefabAsset: {fileID: 0}
---- !u!81 &2028680154
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028680153}
-  m_Enabled: 1
 --- !u!1001 &2030156601
 PrefabInstance:
   m_ObjectHideFlags: 0
