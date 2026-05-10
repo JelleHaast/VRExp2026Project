@@ -202,7 +202,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 moveSpeed = m_RunSpeed;
             else
                 moveSpeed = m_WalkSpeed;
-            Debug.Log(moveSpeed);
 
             return base.ComputeDesiredMove(input);
 

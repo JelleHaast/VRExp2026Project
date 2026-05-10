@@ -54,8 +54,8 @@ public class HolsterableLight : MonoBehaviour
         transform.localRotation = Quaternion.Euler(holsterLocalRotation);
 
         // Freeze it
-        rb.isKinematic = true;
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Floor
   - Hallway
   - Obstacle
+  - YellowKC
   layers:
   - Default
   - TransparentFX
