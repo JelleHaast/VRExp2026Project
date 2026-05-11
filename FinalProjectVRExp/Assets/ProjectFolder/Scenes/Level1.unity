@@ -19183,7 +19183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30993,6 +30993,38 @@ PrefabInstance:
     - target: {fileID: 5864014502310720415, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316772069988574316, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316772070306930734, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316772070389092711, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316772070494154523, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316772071155525669, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316772071265905552, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316772071423498604, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316772071735727315, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 7750703252660214648, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
       propertyPath: m_LocalPosition.x

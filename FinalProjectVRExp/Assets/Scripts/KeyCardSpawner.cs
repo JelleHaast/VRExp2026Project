@@ -7,7 +7,7 @@ public class KeyCardSpawner : MonoBehaviour
     public GameObject prefab;
     public bool matchRotation = true;
     public bool parentToSpawnPoint = false;
-    public bool spawnOnStart = true;
+    public bool spawnOnStart = false;
 
     private GameObject _spawnedObject;
 
