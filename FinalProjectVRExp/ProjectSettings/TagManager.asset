@@ -12,6 +12,7 @@ TagManager:
   - YellowKC
   - Door
   - PurpleKC
+  - GreenKC
   layers:
   - Default
   - TransparentFX
