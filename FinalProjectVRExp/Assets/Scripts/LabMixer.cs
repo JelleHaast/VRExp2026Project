@@ -7,7 +7,6 @@ public class ScheikundeMixer : MonoBehaviour
     public bool heeftStofA = false;
     public bool heeftStofB = false;
 
-
     [Header("Instellingen")]
     public float gietHoek = 100f; 
     public GameObject objectDatVerdwijnt;
@@ -21,7 +20,15 @@ public class ScheikundeMixer : MonoBehaviour
     void Update()
     {
         // Als we een debug-scherm hebben gekoppeld, werk deze dan elke frame bij!
-       
+        if (debugScherm != null)
+        {
+            debugScherm.text = 
+                "<color=yellow>--- MIXER DEBUGGER ---</color>\n" +
+                "Stof A: " + (heeftStofA ? "<color=green>JA</color>" : "<color=red>NEE</color>") + "\n" +
+                "Stof B: " + (heeftStofB ? "<color=green>JA</color>" : "<color=red>NEE</color>") + "\n\n" +
+                "Kanteling glas: " + Mathf.RoundToInt(actueleKanteling) + " graden\n" +
+                "Log: " + laatsteMelding;
+        }
     }
 
     void OnTriggerStay(Collider anderObject)
@@ -53,7 +60,6 @@ public class ScheikundeMixer : MonoBehaviour
             heeftStofB = true;
             GietSucces(flesje.gameObject, "Stof B");
         }
-
     }
 
     void GietSucces(GameObject flesje, string stofNaam)

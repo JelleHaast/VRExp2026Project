@@ -24,7 +24,7 @@ public class MonsterPassive : MonoBehaviour
         while (true)
         {
             // 1. Kies een willekeurige wachttijd tussen de 20 en 40 seconden
-            float waitTime = Random.Range(20f, 40f);
+            float waitTime = Random.Range(10f, 20f);
             
             // 2. Wacht zolang op de achtergrond
             yield return new WaitForSeconds(waitTime);
