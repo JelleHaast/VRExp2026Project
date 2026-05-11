@@ -189,6 +189,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4091258796490106328, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
   m_PrefabInstance: {fileID: 113160243}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &113160245 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4890712401117462684, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
+  m_PrefabInstance: {fileID: 113160243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &141953016
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,8 +280,52 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2934688764204856879, guid: 1701b93f7f14610499bff242eb8c6f5a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 231687983}
+    - targetCorrespondingSourceObject: {fileID: 2934688764204856879, guid: 1701b93f7f14610499bff242eb8c6f5a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 231687984}
   m_SourcePrefab: {fileID: 100100000, guid: 1701b93f7f14610499bff242eb8c6f5a, type: 3}
+--- !u!1 &231687982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2934688764204856879, guid: 1701b93f7f14610499bff242eb8c6f5a, type: 3}
+  m_PrefabInstance: {fileID: 231687981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &231687983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231687982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &231687984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231687982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852d5846bdeeb9b4e9599f4fdece37a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectEmission
+  spelerHoofd: {fileID: 113160245}
+  activeerAfstand: 7
+  outlineDikte: 4
 --- !u!1 &392215685
 GameObject:
   m_ObjectHideFlags: 0
