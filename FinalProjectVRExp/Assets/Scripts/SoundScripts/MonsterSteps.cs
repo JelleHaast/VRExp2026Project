@@ -1,23 +1,31 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class MonsterSteps : MonoBehaviour
 {
     public AudioSource audioSource;
-    private NavMeshAgent nav;
+    
+    // We onthouden hier de positie van de vorige frame
+    private Vector3 vorigePositie;
 
     void Start()
     {
-        // Zoek de 'GPS' (NavMeshAgent) van het monster op de bovenliggende map
-        nav = GetComponentInParent<NavMeshAgent>();
+        // Sla de startpositie op zodra de game begint
+        // (We gebruiken transform.root.position zodat we altijd naar het hele monster kijken, 
+        // zelfs als dit script op een onderdeeltje zoals een voet staat)
+        vorigePositie = transform.root.position;
     }
 
     void Update()
     {
-        // Checkt of het monster daadwerkelijk beweegt (snelheid is groter dan 0.1)
-        if (nav.velocity.magnitude > 0.1f)
+        // 1. Bereken de afstand tussen de huidige plek en de plek van de vorige frame
+        float afstandBeweegt = Vector3.Distance(transform.root.position, vorigePositie);
+        
+        // 2. Reken dit om naar een echte snelheid (onafhankelijk van framerate)
+        float snelheid = afstandBeweegt / Time.deltaTime;
+
+        // 3. Check of de snelheid hoog genoeg is om als 'lopen' te tellen
+        if (snelheid > 0.1f)
         {
-            // Als hij beweegt, maar het geluid staat nog uit, zet het dan aan!
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -25,11 +33,13 @@ public class MonsterSteps : MonoBehaviour
         }
         else
         {
-            // Als hij stilstaat, pauzeer het geluid direct
             if (audioSource.isPlaying)
             {
-                audioSource.Pause();
+                audioSource.Pause(); 
             }
         }
+
+        // 4. Update de vorige positie voor de check in de volgende frame!
+        vorigePositie = transform.root.position;
     }
 }
