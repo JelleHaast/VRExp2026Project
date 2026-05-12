@@ -1,51 +1,54 @@
 using UnityEngine;
-using TMPro; // Dit is nodig om TextMeshPro aan te sturen!
+using TMPro;
 
-public class ScheikundeMixer : MonoBehaviour
+public class LabMixer : MonoBehaviour
 {
     [Header("Voortgang")]
     public bool heeftStofA = false;
     public bool heeftStofB = false;
+    public bool heeftStofC = false;
 
     [Header("Instellingen")]
     public float gietHoek = 100f; 
     public GameObject objectDatVerdwijnt;
     public GameObject objectDatVerschijnt;
 
-    [Header("In-Game Debugger")]
-    public TextMeshPro debugScherm; // Sleep hier je zwevende tekst in
-    private string laatsteMelding = "Wachten op glazen...";
-    private float actueleKanteling = 0f;
-
-    void Update()
-    {
-        // Als we een debug-scherm hebben gekoppeld, werk deze dan elke frame bij!
-        if (debugScherm != null)
-        {
-            debugScherm.text = 
-                "<color=yellow>--- MIXER DEBUGGER ---</color>\n" +
-                "Stof A: " + (heeftStofA ? "<color=green>JA</color>" : "<color=red>NEE</color>") + "\n" +
-                "Stof B: " + (heeftStofB ? "<color=green>JA</color>" : "<color=red>NEE</color>") + "\n\n" +
-                "Kanteling glas: " + Mathf.RoundToInt(actueleKanteling) + " graden\n" +
-                "Log: " + laatsteMelding;
-        }
-    }
+    private float volgendeLogTijd = 0f;
 
     void OnTriggerStay(Collider anderObject)
     {
-        // Update de live kanteling-meter voor de debugger
-        actueleKanteling = Vector3.Angle(anderObject.transform.up, Vector3.up);
+        ParticleSystem straal = anderObject.GetComponentInChildren<ParticleSystem>();
+        
+        // Als dit object geen Particle System heeft, negeer het dan!
+        if (straal == null) return; 
 
-        if (actueleKanteling >= gietHoek)
+        float hoek = Vector3.Angle(anderObject.transform.up, Vector3.up);
+
+        // 📡 RADAR: Print elke halve seconde wat de code ziet
+        if (Time.time > volgendeLogTijd)
         {
+            Debug.Log("📡 RADAR: Ik zie [" + anderObject.name + "]! De hoek is: " + Mathf.Round(hoek) + " graden.");
+            volgendeLogTijd = Time.time + 0.5f;
+        }
+
+        if (hoek >= gietHoek)
+        {
+            if (!straal.isPlaying) straal.Play();
             CheckFlesje(anderObject);
+        }
+        else
+        {
+            if (straal.isPlaying) straal.Stop();
         }
     }
 
     void OnTriggerExit(Collider anderObject)
     {
-        // Zet de hoek-meter weer op 0 als we het glas weghalen
-        actueleKanteling = 0f;
+        ParticleSystem straal = anderObject.GetComponentInChildren<ParticleSystem>();
+        if (straal != null && straal.isPlaying)
+        {
+            straal.Stop();
+        }
     }
 
     void CheckFlesje(Collider flesje)
@@ -60,21 +63,25 @@ public class ScheikundeMixer : MonoBehaviour
             heeftStofB = true;
             GietSucces(flesje.gameObject, "Stof B");
         }
+        else if (flesje.CompareTag("StofC") && !heeftStofC)
+        {
+            heeftStofC = true;
+            GietSucces(flesje.gameObject, "Stof C");
+        }
     }
 
     void GietSucces(GameObject flesje, string stofNaam)
     {
-        laatsteMelding = stofNaam + " is met succes gegoten!";
+        Debug.Log("🧪 " + stofNaam + " is met succes gegoten!");
         flesje.tag = "Untagged"; 
         CheckOfMinigameKlaarIs();
     }
 
     void CheckOfMinigameKlaarIs()
     {
-        if (heeftStofA && heeftStofB)
+        if (heeftStofA && heeftStofB && heeftStofC)
         {
-            laatsteMelding = "SUCCES! De eindstof is gemaakt!";
-            
+            Debug.Log("🎉 SUCCES! Alle stoffen zijn gemixt!");
             if (objectDatVerdwijnt != null) objectDatVerdwijnt.SetActive(false);
             if (objectDatVerschijnt != null) objectDatVerschijnt.SetActive(true);
         }
