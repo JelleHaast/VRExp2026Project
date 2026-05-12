@@ -40077,7 +40077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6177461648221435495, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: far clip plane
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6177461648221435495, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_OcclusionCulling
