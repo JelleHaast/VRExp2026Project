@@ -8629,7 +8629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &492948170
 Transform:
   m_ObjectHideFlags: 0
@@ -40053,7 +40053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4471912990647493129, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4471912990647493129, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42278,6 +42278,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 624652219944321043, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 09090a23398163a4096be13878ad228b, type: 3}
+    - target: {fileID: 684409417885963094, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: speedMultiplier
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 684409417885963094, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: rotationMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6743886348708290199, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: m_Name
       value: Seeker
