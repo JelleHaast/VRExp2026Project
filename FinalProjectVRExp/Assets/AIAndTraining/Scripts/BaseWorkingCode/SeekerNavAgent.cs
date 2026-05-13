@@ -12,14 +12,18 @@ public class SeekerNavAgent : Agent
 
     public override void Initialize()
     {
-        Debug.Log("AI Initialize started on " + gameObject.name);
-        if (rb == null) Debug.LogError("RB IS MISSING ON " + gameObject.name);
-        rb = GetComponent<Rigidbody>();
-        if (rb != null)
+        rb = GetComponent<Rigidbody>(); // ← assign FIRST
+
+        if (rb == null)
         {
-            rb.linearDamping = 1f;
-            rb.angularDamping = 1f;
+            Debug.LogError("RB IS MISSING ON " + gameObject.name);
+            return; // no point continuing
         }
+
+        rb.linearDamping = 1f;
+        rb.angularDamping = 1f;
+
+        Debug.Log("AI Initialize complete on " + gameObject.name);
     }
 
     public override void OnEpisodeBegin()

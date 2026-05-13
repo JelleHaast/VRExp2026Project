@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 624652219944321043}
   - component: {fileID: 434727322991709880}
   - component: {fileID: 684409417885963094}
+  - component: {fileID: 7980009781216359136}
   - component: {fileID: 8209575880020134769}
   - component: {fileID: 7213120031093113414}
   - component: {fileID: 8988997719912048101}
@@ -21,7 +22,6 @@ GameObject:
   - component: {fileID: 603070634574807435}
   - component: {fileID: 71611870463963017}
   - component: {fileID: 969036498399590903}
-  - component: {fileID: 7980009781216359136}
   m_Layer: 0
   m_Name: Seeker
   m_TagString: Untagged
@@ -182,6 +182,21 @@ MonoBehaviour:
   MaxStep: 0
   rotationMultiplier: 3
   speedMultiplier: 4
+--- !u!114 &7980009781216359136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743886348708290199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.ML-Agents::Unity.MLAgents.DecisionRequester
+  DecisionPeriod: 10
+  DecisionStep: 0
+  TakeActionsBetweenDecisions: 1
 --- !u!114 &8209575880020134769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,21 +443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterSteps
   audioSource: {fileID: 71611870463963017}
---- !u!114 &7980009781216359136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6743886348708290199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.ML-Agents::Unity.MLAgents.DecisionRequester
-  DecisionPeriod: 5
-  DecisionStep: 0
-  TakeActionsBetweenDecisions: 1
 --- !u!1001 &8479690502959962841
 PrefabInstance:
   m_ObjectHideFlags: 0
