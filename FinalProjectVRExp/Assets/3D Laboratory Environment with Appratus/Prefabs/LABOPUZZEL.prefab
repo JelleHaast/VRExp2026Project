@@ -15142,7 +15142,7 @@ Transform:
   m_GameObject: {fileID: 8133075909183407942}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.016, y: 0.173, z: -0.002}
+  m_LocalPosition: {x: -0.016, y: 0.1358, z: -0.002}
   m_LocalScale: {x: 1.5000002, y: 1.5000001, z: 0.49999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15221,7 +15221,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -18739,7 +18739,7 @@ ParticleSystem:
     type: 1
     collisionMode: 0
     colliderForce: 0
-    multiplyColliderForceByParticleSize: 0
+    multiplyColliderForceByParticleSize: 1
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
     m_Planes: []
@@ -18911,20 +18911,20 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
     enabled: 1
     serializedVersion: 2
-    inside: 1
-    outside: 0
-    enter: 0
-    exit: 0
+    inside: 0
+    outside: 2
+    enter: 2
+    exit: 2
     colliderQueryMode: 0
-    radiusScale: 1
+    radiusScale: 1.5
     primitives:
-    - {fileID: 5330630416335400486, guid: e30258ff01c0b3f44ac29bb5a7f4ef54, type: 3}
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
