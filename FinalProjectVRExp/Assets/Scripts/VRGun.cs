@@ -13,7 +13,11 @@ public class VRGun : MonoBehaviour
     public Transform schietPunt;
     public float schietKracht = 20f;
 
-    [Header("Besturing (Direct)")]
+    [Header("Effecten")]
+    public ParticleSystem schietParticles; 
+    private AudioSource audioSource;
+
+    [Header("Besturing")]
     public InputActionProperty rechterTrekkerActie; 
     public InputActionProperty linkerTrekkerActie;
 
@@ -23,24 +27,14 @@ public class VRGun : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("🔫 [DEBUG] Start() - VRGeweer (Beide Handen) is ontwaakt.");
-        grabInteractable = GetComponent<XRGrabInteractable>();
+        Debug.Log("🔫 [DEBUG] Start() - VRGun is volledig opgeladen met geluid en particles.");
         
-        // Zet rechter microfoon aan
-        if (rechterTrekkerActie.action != null) 
-        {
-            rechterTrekkerActie.action.Enable();
-            Debug.Log("🔫 [DEBUG] Rechter trekker succesvol geactiveerd!");
-        }
-        else Debug.LogWarning("🔴 [WAARSCHUWING] Rechter Trekker is niet ingevuld in de Inspector!");
-
-        // Zet linker microfoon aan
-        if (linkerTrekkerActie.action != null) 
-        {
-            linkerTrekkerActie.action.Enable();
-            Debug.Log("🔫 [DEBUG] Linker trekker succesvol geactiveerd!");
-        }
-        else Debug.LogWarning("🔴 [WAARSCHUWING] Linker Trekker is niet ingevuld in de Inspector!");
+        grabInteractable = GetComponent<XRGrabInteractable>();
+        audioSource = GetComponent<AudioSource>();
+        
+        // Activeer de input acties
+        if (rechterTrekkerActie.action != null) rechterTrekkerActie.action.Enable();
+        if (linkerTrekkerActie.action != null) linkerTrekkerActie.action.Enable();
 
         if (grabInteractable != null) 
         {
@@ -53,92 +47,89 @@ public class VRGun : MonoBehaviour
     {
         if (wordtVastgehouden)
         {
-            // Lees beide trekkers uit (als ze zijn ingevuld, anders is het 0)
+            // Check de waarde van beide controllers
             float drukRechts = (rechterTrekkerActie.action != null) ? rechterTrekkerActie.action.ReadValue<float>() : 0f;
             float drukLinks = (linkerTrekkerActie.action != null) ? linkerTrekkerActie.action.ReadValue<float>() : 0f;
-            
-            // We pakken de hoogste waarde
             float trekkerWaarde = Mathf.Max(drukRechts, drukLinks);
             
+            // Schiet bij 50% indrukken
             if (trekkerWaarde > 0.5f && !heeftGeschotenDezeKlik)
             {
-                Debug.Log("🔫 [DEBUG] PANG! Trekker overgehaald!");
                 heeftGeschotenDezeKlik = true;
                 HaalTrekkerOver();
             }
+            // Reset de trekker pas als je hem bijna helemaal loslaat
             else if (trekkerWaarde < 0.1f)
             {
-                if (heeftGeschotenDezeKlik) Debug.Log("🔫 [DEBUG] Trekker losgelaten, klaar voor volgend schot.");
-                heeftGeschotenDezeKlik = false; // Reset als we loslaten
+                heeftGeschotenDezeKlik = false;
             }
         }
     }
 
-    void Oppakken(SelectEnterEventArgs args)
-    {
-        wordtVastgehouden = true;
-        Debug.Log("🔫 [DEBUG] Geweer VASTGEPAKT door: " + args.interactorObject.transform.name);
-    }
-
-    void Loslaten(SelectExitEventArgs args)
-    {
-        wordtVastgehouden = false;
-        Debug.Log("🔫 [DEBUG] Geweer LOSGELATEN.");
-    }
+    void Oppakken(SelectEnterEventArgs args) => wordtVastgehouden = true;
+    void Loslaten(SelectExitEventArgs args) => wordtVastgehouden = false;
 
     public void HaalTrekkerOver()
     {
-        if (isGeladen)
+        if (isGeladen) 
         {
             Schiet();
         }
-        else
+        else 
         {
-            Debug.Log("🔫 [DEBUG] KLIK! Het geweer is nog leeg...");
+            Debug.Log("🔫 [DEBUG] KLIK! Geen munitie of kogel is niet chemisch behandeld.");
         }
     }
 
     void Schiet()
     {
-        if (kogelPrefab == null) 
+        // Veiligheidscheck: hebben we alles ingevuld?
+        if (kogelPrefab == null || schietPunt == null) 
         {
-            Debug.LogError("🔴 [FOUT] De KOGEL mist op het object genaamd: " + gameObject.name);
-            return;
-        }
-        if (schietPunt == null) 
-        {
-            Debug.LogError("🔴 [FOUT] Het SCHIETPUNT mist op het object genaamd: " + gameObject.name);
+            Debug.LogError("🔴 [FOUT] KogelPrefab of SchietPunt mist in de Inspector!");
             return;
         }
 
+        // 1. Speel Geluid af (PlayOneShot zodat geluiden kunnen overlappen)
+        if (audioSource != null && audioSource.clip != null) 
+        {
+            audioSource.PlayOneShot(audioSource.clip);
+        }
+
+        // 2. Speel Particle Effect af (Muzzle Flash)
+        if (schietParticles != null)
+        {
+            schietParticles.Play();
+        }
+
+        // 3. Spawn de kogel
         GameObject nieuweKogel = Instantiate(kogelPrefab, schietPunt.position, schietPunt.rotation);
         
         Rigidbody rb = nieuweKogel.GetComponent<Rigidbody>();
         if (rb != null) 
         {
             rb.linearVelocity = schietPunt.forward * schietKracht;
-            Debug.Log("🔫 [DEBUG] Kogel succesvol afgevuurd!");
+            Debug.Log("🔫 [DEBUG] PANG! Kogel afgevuurd.");
         }
     }
 
-   void OnTriggerEnter(Collider anderObject)
+    void OnTriggerEnter(Collider anderObject)
     {
+        // Check of het munitie is en of we nog niet geladen zijn
         if (anderObject.CompareTag("Munitie") && !isGeladen)
         {
-            // Zoek het geheugen-script op de kogel die we net aanraken
+            // Zoek naar het script dat de kleurverandering bijhoudt
             BulletTransformation status = anderObject.GetComponent<BulletTransformation>();
-
-            // Heeft de kogel het script en zit de eindstof erop?
-            if (status != null && status.heeftEindstof == true)
+            
+            if (status != null && status.heeftEindstof)
             {
                 isGeladen = true;
-                Debug.Log("🔫 [DEBUG] Kogel MÉT eindstof erin gestopt! Geweer is nu GELADEN.");
+                Debug.Log("🔫 [DEBUG] Geweer geladen met actieve kogel!");
                 Destroy(anderObject.gameObject); 
             }
-            else if (status != null && status.heeftEindstof == false)
+            else if (status != null && !status.heeftEindstof)
             {
-                Debug.Log("⚠️ [DEBUG] Fout! Deze kogel heeft nog geen eindstof gekregen! Het geweer weigert hem.");
-                // De kogel wordt nu niet vernietigd, hij stuitert gewoon weg of blijft liggen.
+                Debug.Log("⚠️ [DEBUG] Deze kogel heeft nog geen Eindstof geraakt!");
             }
         }
     }

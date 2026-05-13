@@ -2,36 +2,39 @@ using UnityEngine;
 
 public class BulletTransformation : MonoBehaviour
 {
-    [Header("Status")]
     public bool heeftEindstof = false;
-
-    [Header("Visuele Feedback")]
     public Material geactiveerdMateriaal;
 
-    void OnTriggerEnter(Collider ander)
+    // Deze functie wordt aangeroepen door de Collision module van het Particle System
+    void OnParticleCollision(GameObject other)
     {
-        // Let op: 'Eindstof' moet met een hoofdletter E als dat je Tag is!
-        if (ander.CompareTag("Eindstof") && !heeftEindstof)
+        if (!heeftEindstof)
         {
+            Debug.Log("💥 [SUCCESS] Particle botsing met de kogel!");
             ActiveerKogel();
         }
     }
 
-    void ActiveerKogel()
+    // We laten deze erin als reserve
+    void OnParticleTrigger()
+    {
+        if (!heeftEindstof)
+        {
+            Debug.Log("💧 [SUCCESS] Particle trigger contact!");
+            ActiveerKogel();
+        }
+    }
+
+    public void ActiveerKogel()
     {
         heeftEindstof = true;
-        Debug.Log("🧪 [DEBUG] Kogel verkleurt nu!");
-
-        // We zoeken nu ook in de kinderen naar de MeshRenderer
-        MeshRenderer renderer = GetComponentInChildren<MeshRenderer>();
         
+        MeshRenderer renderer = GetComponentInChildren<MeshRenderer>();
+        if (renderer == null) renderer = GetComponent<MeshRenderer>();
+
         if (renderer != null && geactiveerdMateriaal != null)
         {
             renderer.material = geactiveerdMateriaal;
-        }
-        else
-        {
-            Debug.LogWarning("⚠️ Renderer niet gevonden op kogel of kind-object!");
         }
     }
 }
