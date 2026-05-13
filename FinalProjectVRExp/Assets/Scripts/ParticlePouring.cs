@@ -3,33 +3,29 @@ using UnityEngine;
 public class ParticlePouring : MonoBehaviour
 {
     [Header("Instellingen")]
-    public float gietHoek = 95f; // Vanaf 90 graden gaat hij gieten
-    
-    private ParticleSystem straal;
-
-    void Start()
-    {
-        // Zoek bij de start direct het Particle System dat in deze fles zit
-        straal = GetComponentInChildren<ParticleSystem>();
-    }
+    public float gietHoek = 90f;
+    public ParticleSystem vloeistofParticles; // Sleep hier je Particle System in!
 
     void Update()
     {
-        // Als er geen particles zijn, doe dan niks
-        if (straal == null) return;
+        // We checken of de beker ver genoeg gekanteld is
+        // (Afhankelijk van hoe je model is gedraaid, moet je 'up' of 'right' gebruiken)
+        float huidigeHoek = Vector3.Angle(Vector3.up, transform.up);
 
-        // Bereken elke frame hoe schuin DEZE fles hangt
-        float hoek = Vector3.Angle(transform.up, Vector3.up);
-
-        if (hoek >= gietHoek)
+        if (huidigeHoek > gietHoek)
         {
-            // Fles is schuin! Zet de straal aan.
-            if (!straal.isPlaying) straal.Play();
+            if (!vloeistofParticles.isPlaying)
+            {
+                vloeistofParticles.Play();
+                Debug.Log("💧 [DEBUG] Aan het gieten!");
+            }
         }
         else
         {
-            // Fles is weer recht! Zet de straal uit.
-            if (straal.isPlaying) straal.Stop();
+            if (vloeistofParticles.isPlaying)
+            {
+                vloeistofParticles.Stop();
+            }
         }
     }
 }

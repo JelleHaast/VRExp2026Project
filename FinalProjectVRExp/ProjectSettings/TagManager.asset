@@ -17,6 +17,7 @@ TagManager:
   - StofB
   - StofC
   - Eindstof
+  - Munitie
   layers:
   - Default
   - TransparentFX
