@@ -23,9 +23,9 @@ MonoBehaviour:
   m_RequireOpaqueTexture: 0
   m_OpaqueDownsampling: 0
   m_SupportsTerrainHoles: 1
-  m_SupportsHDR: 1
+  m_SupportsHDR: 0
   m_HDRColorBufferPrecision: 0
-  m_MSAA: 8
+  m_MSAA: 2
   m_RenderScale: 0.8
   m_UpscalingFilter: 0
   m_FsrOverrideSharpness: 0
@@ -42,9 +42,9 @@ MonoBehaviour:
   m_SupportProbeVolumeScenarioBlending: 0
   m_ProbeVolumeSHBands: 1
   m_MainLightRenderingMode: 1
-  m_MainLightShadowsSupported: 1
+  m_MainLightShadowsSupported: 0
   m_MainLightShadowmapResolution: 512
-  m_AdditionalLightsRenderingMode: 1
+  m_AdditionalLightsRenderingMode: 2
   m_AdditionalLightsPerObjectLimit: 8
   m_AdditionalLightShadowsSupported: 0
   m_AdditionalLightsShadowmapResolution: 2048
@@ -81,8 +81,8 @@ MonoBehaviour:
   m_ColorGradingLutSize: 32
   m_AllowPostProcessAlphaOutput: 0
   m_UseFastSRGBLinearConversion: 1
-  m_SupportDataDrivenLensFlare: 1
-  m_SupportScreenSpaceLensFlare: 1
+  m_SupportDataDrivenLensFlare: 0
+  m_SupportScreenSpaceLensFlare: 0
   m_GPUResidentDrawerMode: 0
   m_SmallMeshScreenPercentage: 0
   m_GPUResidentDrawerEnableOcclusionCullingInCameras: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
     obsoleteHasProbeVolumes:
       m_Keys: []
       m_Values: 
-  m_PrefilteringModeMainLightShadows: 3
-  m_PrefilteringModeAdditionalLight: 4
+  m_PrefilteringModeMainLightShadows: 0
+  m_PrefilteringModeAdditionalLight: 2
   m_PrefilteringModeAdditionalLightShadows: 0
   m_PrefilterXRKeywords: 0
   m_PrefilteringModeForwardPlus: 0

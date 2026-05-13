@@ -31,8 +31,8 @@ MonoBehaviour:
       type: {class: AndroidPlatformBuildSettings, ns: UnityEditor.Android, asm: UnityEditor.Android.Extensions}
       data:
         m_Development: 1
-        m_ConnectProfiler: 0
-        m_BuildWithDeepProfilingSupport: 0
+        m_ConnectProfiler: 1
+        m_BuildWithDeepProfilingSupport: 1
         m_AllowDebugging: 1
         m_WaitForManagedDebugger: 0
         m_ManagedDebuggerFixedPort: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
         m_ExportAsGoogleAndroidProject: 0
         m_DebugSymbolLevel: 1
         m_DebugSymbolFormat: 5
-        m_CurrentDeploymentTargetId: __builtin__target_default
+        m_CurrentDeploymentTargetId: 1WMHHA62US2152
         m_BuildType: 1
         m_LinkTimeOptimization: 0
         m_BuildAppBundle: 0
