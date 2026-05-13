@@ -31851,6 +31851,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 125
       objectReference: {fileID: 0}
+    - target: {fileID: 4192318837544953298, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.84
+      objectReference: {fileID: 0}
     - target: {fileID: 4314985326936263537, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
@@ -32247,6 +32251,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 125
       objectReference: {fileID: 0}
+    - target: {fileID: 7105100649598343897, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.8264704
+      objectReference: {fileID: 0}
     - target: {fileID: 7174824129421168184, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 125
@@ -32606,6 +32614,10 @@ PrefabInstance:
     - target: {fileID: 8645897431677036770, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951022874752164667, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.819
       objectReference: {fileID: 0}
     - target: {fileID: 8952077395397212775, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -39991,6 +40003,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Origin (XR Rig)
       objectReference: {fileID: 0}
+    - target: {fileID: 2526637874703730944, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
+      propertyPath: m_Antialiasing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4091258796490106328, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 108.1
@@ -42222,9 +42238,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 624652219944321043, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048482833643105765, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6743886348708290199, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: m_Name
       value: Seeker
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743886348708290199, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7874103078014142846, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -42286,7 +42314,8 @@ PrefabInstance:
       propertyPath: 'checkpoints.Array.data[4]'
       value: 
       objectReference: {fileID: 2043080002}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5048482833643105765, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

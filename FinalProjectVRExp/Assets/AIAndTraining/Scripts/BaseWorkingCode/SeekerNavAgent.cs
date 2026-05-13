@@ -1,45 +1,56 @@
-using JetBrains.Annotations;
-using NUnit.Framework;
+using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
-using Unity.VisualScripting;
-using UnityEngine;
 
 public class SeekerNavAgent : Agent
 {
     public float rotationMultiplier = 2f;
-
     public float speedMultiplier = 5f;
 
-    Rigidbody rb;
+    private Rigidbody rb;
 
-    //public Transform[] seekerLocations; //multiple room spanws
-
-    void Start()
+    public override void Initialize()
     {
+        Debug.Log("AI Initialize started on " + gameObject.name);
+        if (rb == null) Debug.LogError("RB IS MISSING ON " + gameObject.name);
         rb = GetComponent<Rigidbody>();
-        rb.linearDamping = 1f;
-        rb.angularDamping = 1f;
+        if (rb != null)
+        {
+            rb.linearDamping = 1f;
+            rb.angularDamping = 1f;
+        }
     }
+
     public override void OnEpisodeBegin()
     {
+        if (rb == null) return; // Safety guard
+
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(rb.linearVelocity / speedMultiplier);  // normalized velocity
+        if (rb == null)
+        {
+            sensor.AddObservation(Vector3.zero);
+            return;
+        }
+        sensor.AddObservation(rb.linearVelocity / speedMultiplier);
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
+        if (rb == null) return;
+
         float rotation = actionBuffers.ContinuousActions[0];
         float forward = actionBuffers.ContinuousActions[1];
 
+        // Apply Rotation
         rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, rotation * rotationMultiplier, 0f));
+
+        // Apply Movement
         Vector3 move = transform.forward * forward * speedMultiplier * Time.deltaTime;
         rb.MovePosition(rb.position + move);
     }
@@ -47,7 +58,7 @@ public class SeekerNavAgent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = Input.GetAxis("Horizontal");
-        continuousActionsOut[1] = Input.GetAxis("Vertical");
+        continuousActionsOut[0] = Input.GetAxisRaw("Horizontal");
+        continuousActionsOut[1] = Input.GetAxisRaw("Vertical");
     }
 }
