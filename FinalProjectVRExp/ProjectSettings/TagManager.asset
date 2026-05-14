@@ -18,6 +18,7 @@ TagManager:
   - StofC
   - Eindstof
   - Munitie
+  - VRFinger
   layers:
   - Default
   - TransparentFX

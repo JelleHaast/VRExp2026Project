@@ -8,8 +8,14 @@ public class KeycardScan : MonoBehaviour
     public float doorRiseTime;
     private bool isUnlocked = false;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip doorSlide;
+    [SerializeField] private AudioClip granted;
+    [SerializeField] private AudioClip denied;
+
     void OnTriggerEnter(Collider other)
     {
+
         if (isUnlocked) return;
 
         if (other.CompareTag(keyCardName))
@@ -17,7 +23,15 @@ public class KeycardScan : MonoBehaviour
             isUnlocked = true;
             Debug.Log("Access granted!");
             if (door != null)
+            {
+                audioSource.PlayOneShot(granted);
+                audioSource.PlayOneShot(doorSlide);
                 StartCoroutine(RaiseDoor());
+            }
+        }
+        else
+        {
+            audioSource.PlayOneShot(denied);
         }
     }
 
