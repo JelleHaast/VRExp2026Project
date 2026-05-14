@@ -7903,7 +7903,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1821984594}
   - {fileID: 586877611}
   - {fileID: 1783319304}
   - {fileID: 663998323}
@@ -29612,33 +29611,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 1ba5474acef99e64987fa5d1254341cc, type: 3}
   m_PrefabInstance: {fileID: 901348767}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1342738727 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 521679040109575675, guid: 72bcb3621a9843e44b64bebb5b48fbe1, type: 3}
-  m_PrefabInstance: {fileID: 1493756999}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1342738731
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342738727}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4856526003229986361, guid: 4d7a1f2d72196e24bb9a9eefb40859c3, type: 3}
 --- !u!1001 &1354795830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32530,6 +32502,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -4.78
       objectReference: {fileID: 0}
+    - target: {fileID: 2029809946132559772, guid: 72bcb3621a9843e44b64bebb5b48fbe1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.961
+      objectReference: {fileID: 0}
     - target: {fileID: 2206969299609894579, guid: 72bcb3621a9843e44b64bebb5b48fbe1, type: 3}
       propertyPath: m_LocalPosition.z
       value: 13.35
@@ -32785,10 +32761,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6714248074206019819, guid: 72bcb3621a9843e44b64bebb5b48fbe1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1472182181}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 521679040109575675, guid: 72bcb3621a9843e44b64bebb5b48fbe1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1342738731}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72bcb3621a9843e44b64bebb5b48fbe1, type: 3}
 --- !u!4 &1493757000 stripped
 Transform:
@@ -39840,68 +39813,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811852689}
   m_Mesh: {fileID: -2271138988497972117, guid: 72b847457babaa54496fecaadc9bbadc, type: 3}
---- !u!1 &1821984593
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1821984594}
-  - component: {fileID: 1821984596}
-  - component: {fileID: 1821984595}
-  m_Layer: 0
-  m_Name: Sphere
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &1821984594
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821984593}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4948425, y: 0.20018768, z: -8.97678}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 425342033}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1821984595
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821984593}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1821984596
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821984593}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1829541861
 GameObject:
   m_ObjectHideFlags: 0
@@ -44862,11 +44773,15 @@ PrefabInstance:
       objectReference: {fileID: 2079694309}
     - target: {fileID: 684409417885963094, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: speedMultiplier
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 684409417885963094, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: rotationMultiplier
-      value: 4
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401888744338257726, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5738388265846206377, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: Quest
@@ -44921,25 +44836,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: 'checkpoints.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1821984594}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: 'checkpoints.Array.data[1]'
+      propertyPath: checkpoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: 'checkpoints.Array.data[0]'
       value: 
       objectReference: {fileID: 586877611}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: 'checkpoints.Array.data[2]'
+      propertyPath: 'checkpoints.Array.data[1]'
       value: 
       objectReference: {fileID: 1783319304}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: 'checkpoints.Array.data[3]'
+      propertyPath: 'checkpoints.Array.data[2]'
       value: 
       objectReference: {fileID: 663998323}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: 'checkpoints.Array.data[4]'
+      propertyPath: 'checkpoints.Array.data[3]'
       value: 
       objectReference: {fileID: 2043080002}
+    - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: 'checkpoints.Array.data[4]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8988997719912048101, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: m_Radius
       value: 0.5

@@ -82,7 +82,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_DeterministicInference: 1
+  m_DeterministicInference: 0
   m_ObservableAttributeHandling: 0
 --- !u!114 &434727322991709880
 MonoBehaviour:
@@ -132,7 +132,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   rotationMultiplier: 3
-  speedMultiplier: 4
+  speedMultiplier: 7
+  spawner: {fileID: 0}
 --- !u!114 &7980009781216359136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,8 +166,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   reachRadius: 1.5
+  waitTime: 20
   seekerAgent: {fileID: 684409417885963094}
 --- !u!54 &7213120031093113414
 Rigidbody:
@@ -225,7 +226,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6743886348708290199}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -408,6 +409,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterHit
   gezondheid: 5
   hitmarkerSound: {fileID: 8300000, guid: c2e80704a034ff94ebe17d8ff349a9ed, type: 3}
+  Quest: {fileID: 11400000, guid: 953c863d5e8c089499c1da95c28731ee, type: 2}
+  manager: {fileID: 0}
 --- !u!1001 &8479690502959962841
 PrefabInstance:
   m_ObjectHideFlags: 0
