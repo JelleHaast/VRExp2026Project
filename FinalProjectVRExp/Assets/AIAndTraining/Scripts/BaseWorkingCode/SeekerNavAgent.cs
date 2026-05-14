@@ -9,21 +9,29 @@ public class SeekerNavAgent : Agent
     public float speedMultiplier = 5f;
 
     private Rigidbody rb;
+    public SeekerSpawnManager spawner;
 
+    void Start()
+    {
+        spawner.Despawn();
+    }
     public override void Initialize()
     {
-        rb = GetComponent<Rigidbody>(); // ← assign FIRST
+        rb = GetComponent<Rigidbody>();
+
 
         if (rb == null)
         {
             Debug.LogError("RB IS MISSING ON " + gameObject.name);
-            return; // no point continuing
+            return;
         }
 
         rb.linearDamping = 1f;
         rb.angularDamping = 1f;
 
         Debug.Log("AI Initialize complete on " + gameObject.name);
+
+        //gameObject.SetActive(false); //<-- monster get preloaded from menu than disable on startup
     }
 
     public override void OnEpisodeBegin()

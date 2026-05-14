@@ -10,11 +10,13 @@ public class HolsterableLight : MonoBehaviour
     public XRGrabInteractable grabInteractable;
     public KeyCardSpawner KCSpawn;
     public GameObject monster;
+    public SeekerSpawnManager spawner;
 
     [Header("Holster Pose")]
     public Vector3 holsterLocalPosition = Vector3.zero;
     public Vector3 holsterLocalRotation = Vector3.zero;
     private bool FirstPickup = false;
+
 
     private bool isHeld = false;
 
@@ -37,7 +39,7 @@ public class HolsterableLight : MonoBehaviour
         if (FirstPickup == false)
         {
             KCSpawn.Spawn();
-            monster.SetActive(true);
+            spawner.Spawn();
         }
         isHeld = true;
         transform.SetParent(null);
