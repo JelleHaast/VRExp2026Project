@@ -25,7 +25,6 @@ public class TriggerNarrator1 : MonoBehaviour
                 radioAudioSource.Play();
                 
                 isAlAfgespeeld = true; // Zet hem op true zodat hij niet blijft herhalen
-                Debug.Log("📻 Speler liep de kamer in: Radiobericht 2 speelt af!");
             }
         }
     }
