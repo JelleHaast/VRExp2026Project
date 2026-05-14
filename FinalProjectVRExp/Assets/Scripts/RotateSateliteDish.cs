@@ -6,6 +6,9 @@ public class RotateObject : MonoBehaviour
     [SerializeField] private float targetAngle = 240f;
     [SerializeField] private AudioSource audioSource;
 
+    public QuestData Quest;
+    public QuestManager manager;
+
     private float rotated = 0f;
     private bool rotating = false;
 
@@ -33,5 +36,8 @@ public class RotateObject : MonoBehaviour
         audioSource.Stop();
 
         rotating = false;
+
+        Quest.isCompleted = true;
+        manager.CheckAllQuests();
     }
 }

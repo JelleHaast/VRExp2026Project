@@ -17,6 +17,9 @@ public class HolsterableLight : MonoBehaviour
     public Vector3 holsterLocalRotation = Vector3.zero;
     private bool FirstPickup = false;
 
+    public QuestData Quest;
+    public QuestManager manager;
+
 
     private bool isHeld = false;
 
@@ -40,6 +43,9 @@ public class HolsterableLight : MonoBehaviour
         {
             KCSpawn.Spawn();
             spawner.Spawn();
+            Quest.isCompleted = true;
+            manager.CheckAllQuests();
+            FirstPickup = true;
         }
         isHeld = true;
         transform.SetParent(null);

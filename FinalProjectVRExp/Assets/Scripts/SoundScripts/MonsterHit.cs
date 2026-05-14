@@ -7,11 +7,14 @@ public class MonsterHit : MonoBehaviour
     private bool isDood = false;
 
     [Header("Componenten")]
-    private AudioSource monsterVoice; 
+    private AudioSource monsterVoice;
     private Animator animator; // Verwijzing naar de animator
 
     [Header("Geluiden")]
     public AudioClip hitmarkerSound;
+
+    public QuestData Quest;
+    public QuestManager manager;
 
     void Start()
     {
@@ -33,7 +36,7 @@ public class MonsterHit : MonoBehaviour
     void MonsterRaken()
     {
         gezondheid--;
-        
+
         // Speel geluiden
         if (monsterVoice != null) monsterVoice.PlayOneShot(monsterVoice.clip);
         if (hitmarkerSound != null)
@@ -67,5 +70,7 @@ public class MonsterHit : MonoBehaviour
 
         // Verwijder het object pas NA de animatie (bijv. na 5 seconden)
         Destroy(gameObject, 5f);
+        Quest.isCompleted = true;
+        manager.CheckAllQuests();
     }
 }
