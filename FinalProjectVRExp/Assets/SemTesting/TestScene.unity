@@ -159,6 +159,14 @@ PrefabInstance:
       propertyPath: vertragingVoorBeeld
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3798427001208790569, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798427001208790569, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.69
+      objectReference: {fileID: 0}
     - target: {fileID: 4091258796490106328, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.25
@@ -206,6 +214,14 @@ PrefabInstance:
     - target: {fileID: 5635154142647194409, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447820583659227286, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000057183206
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447820583659227286, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.7000009
       objectReference: {fileID: 0}
     - target: {fileID: 8508914277632029200, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_InteractionManager

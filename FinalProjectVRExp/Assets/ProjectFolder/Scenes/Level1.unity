@@ -4833,32 +4833,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!1 &239204573 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7562350575867703755, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
-  m_PrefabInstance: {fileID: 1191234235}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &239204575
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239204573}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.82, y: 1, z: 0.79}
-  m_Center: {x: 0, y: 0.48, z: 0}
 --- !u!1 &239611648
 GameObject:
   m_ObjectHideFlags: 0
@@ -6900,7 +6874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerNarrator1
   radioAudioSource: {fileID: 371052093}
-  storageRoomBericht: {fileID: 8300000, guid: 23e0ab9424fa3434cbddacaf7e8b9aed, type: 3}
+  storageRoomBericht: {fileID: 8300000, guid: 85bc9499645ac2d4ba9cfc18a3605d3e, type: 3}
 --- !u!65 &371052095
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10387,32 +10361,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586877610}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &588958637 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3345213788749806300, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
-  m_PrefabInstance: {fileID: 1191234235}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &588958639
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588958637}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.82, y: 1, z: 0.79}
-  m_Center: {x: 0, y: 0.48, z: 0}
 --- !u!1001 &592753654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25569,6 +25517,8 @@ PrefabInstance:
     - {fileID: 2388805376381485224, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
     - {fileID: 4633733344942978444, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
     - {fileID: 4826721931893946675, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
+    - {fileID: 3345213788749806300, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
+    - {fileID: 7562350575867703755, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1278326602218042728, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
       insertIndex: 18
@@ -25772,12 +25722,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 749450798609737576, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1878386609}
-    - targetCorrespondingSourceObject: {fileID: 3345213788749806300, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 588958639}
-    - targetCorrespondingSourceObject: {fileID: 7562350575867703755, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 239204575}
     - targetCorrespondingSourceObject: {fileID: 3779507046771779876, guid: 4be495e2484dc4d4a8ca2def5f39577d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 427633219}
@@ -38062,7 +38006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1103762903151826187, guid: a2db60b32790b184284d64991325ffdd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.631
+      value: 0.938
       objectReference: {fileID: 0}
     - target: {fileID: 2999963535605804023, guid: a2db60b32790b184284d64991325ffdd, type: 3}
       propertyPath: m_Name
@@ -41493,7 +41437,7 @@ Transform:
   m_GameObject: {fileID: 2090426005}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 24.961, y: -8.22, z: 24.542}
+  m_LocalPosition: {x: 30.93, y: -8.22, z: 17.54}
   m_LocalScale: {x: 0.1, y: 0.01, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
