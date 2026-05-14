@@ -5,7 +5,7 @@ public class Narration1Script : MonoBehaviour
     [Header("Instellingen")]
     [Tooltip("Sleep hier de AudioSource in die het radiobericht moet afspelen")]
     public AudioSource radioAudioSource;
-    
+
     [Tooltip("Aantal seconden wachten voordat het bericht start")]
     public float wachttijd = 10f;
 
@@ -13,7 +13,7 @@ public class Narration1Script : MonoBehaviour
     {
         // We gebruiken Invoke om een functie na een bepaalde tijd aan te roepen
         Invoke("SpeelBerichtAf", wachttijd);
-        
+
         Debug.Log("⏱️ Timer gestart: Radiobericht speelt over " + wachttijd + " seconden.");
     }
 
