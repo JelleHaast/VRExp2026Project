@@ -139,34 +139,6 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1789339085}
-    - target: {fileID: 2853099495047982650, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-      propertyPath: VideoAudio
-      value: 
-      objectReference: {fileID: 2115045987}
-    - target: {fileID: 2853099495047982650, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-      propertyPath: duurCutscene
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2853099495047982650, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-      propertyPath: extraJumpscare
-      value: 
-      objectReference: {fileID: 754235325}
-    - target: {fileID: 2853099495047982650, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-      propertyPath: sceneOmTeLaden
-      value: Level0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2853099495047982650, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-      propertyPath: vertragingVoorBeeld
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798427001208790569, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798427001208790569, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.69
-      objectReference: {fileID: 0}
     - target: {fileID: 4091258796490106328, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.25
@@ -211,18 +183,6 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1789339085}
-    - target: {fileID: 5635154142647194409, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6447820583659227286, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.00000057183206
-      objectReference: {fileID: 0}
-    - target: {fileID: 6447820583659227286, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.7000009
-      objectReference: {fileID: 0}
     - target: {fileID: 8508914277632029200, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -777,17 +737,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 917006495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &754235325 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5635154142647194409, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-  m_PrefabInstance: {fileID: 113160243}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b60a944eb87694c9026b3c65d8a845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JumpscareTrigger
 --- !u!1001 &784442632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1433,11 +1382,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30258ff01c0b3f44ac29bb5a7f4ef54, type: 3}
---- !u!82 &2115045987 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5191528089741602850, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
-  m_PrefabInstance: {fileID: 113160243}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &412203763161066535
 PrefabInstance:
   m_ObjectHideFlags: 0

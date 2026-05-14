@@ -229,7 +229,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998214411868958333}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17b60a944eb87694c9026b3c65d8a845, type: 3}
   m_Name: 
@@ -251,9 +251,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JumpscareVideo
   videoScherm: {fileID: 4757490348394674253}
   videoPlayer: {fileID: 4792186055011944328}
-  duurCutscene: 999
-  jumpscareGeluid: {fileID: 5191528089741602850}
-  vertragingGeluid: 6
+  duurCutscene: 15
+  VideoAudio: {fileID: 5191528089741602850}
+  extraJumpscare: {fileID: 5635154142647194409}
+  vertragingVoorBeeld: 6
+  sceneOmTeLaden: Level0
 --- !u!1 &1481552088812228161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,7 +1448,7 @@ Transform:
   m_GameObject: {fileID: 4125948922562485109}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0004350543, y: -0.70710653, z: 0.70710677, w: 0.0004350692}
-  m_LocalPosition: {x: -0, y: -0, z: 0.588}
+  m_LocalPosition: {x: 0, y: -0, z: 0.69}
   m_LocalScale: {x: 0.2, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1913,7 +1915,7 @@ Transform:
   m_GameObject: {fileID: 4757490348394674253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000051409006, y: 0, z: 0.5980005}
+  m_LocalPosition: {x: 0.00000057183206, y: 0, z: 0.7000009}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
