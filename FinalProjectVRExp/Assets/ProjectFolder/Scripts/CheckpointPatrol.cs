@@ -43,6 +43,7 @@ public class CheckpointPatrol : MonoBehaviour
 
         // --- SWITCH TO SEEKER AGENT ---
         nav.isStopped = true;       // Stop the movement
+        nav.enabled = false;
         seekerAgent.enabled = true;  // Enable your ML script
         Debug.Log("Reached Point: ML Agent taking over for " + waitTime + "s");
 
@@ -52,6 +53,7 @@ public class CheckpointPatrol : MonoBehaviour
         // --- SWITCH BACK TO NAV MESH ---
         seekerAgent.enabled = false; // Disable ML script
         nav.isStopped = false;      // Allow NavMesh to move again
+        nav.enabled = true;
 
         // Pick the next destination
         currentIndex = (currentIndex + 1) % checkpoints.Length;
