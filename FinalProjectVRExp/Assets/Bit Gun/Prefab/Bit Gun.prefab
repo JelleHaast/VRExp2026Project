@@ -327,6 +327,8 @@ MonoBehaviour:
   schietPunt: {fileID: 5714695829998759948}
   schietKracht: 60
   schietParticles: {fileID: 2902953980773899308}
+  schietGeluid: {fileID: 8300000, guid: faa0fd33fcc212a4cbc77d6f44e1c136, type: 3}
+  laadGeluid: {fileID: 8300000, guid: 3aa35de7be7e7c745a4a42fea2fd7a7c, type: 3}
   rechterTrekkerActie:
     m_UseReference: 1
     m_Action:
@@ -574,15 +576,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1972487910709877232, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1972487910709877232, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1972487910709877232, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1972487910709877232, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
       propertyPath: m_LocalPosition.x

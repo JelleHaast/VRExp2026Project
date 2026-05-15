@@ -137,8 +137,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4499275, y: 0.3862934, z: 0.5111425}
-  m_Center: {x: 0.105709426, y: -0.00062794983, z: -0.02999781}
+  m_Size: {x: 0.22535923, y: 0.27022362, z: 0.27134815}
+  m_Center: {x: -0.0065761423, y: -0.021445721, z: -0.017926173}
 --- !u!65 &4932040103468124146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f9a1c53e314ab499022de0324e4dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletTransformation
-  heeftEindstof: 0
+  heeftEindstof: 1
   geactiveerdMateriaal: {fileID: 2100000, guid: 76b1e507c4fd356408a92da9cb804384, type: 2}
 --- !u!1 &6459261836760363873
 GameObject:
