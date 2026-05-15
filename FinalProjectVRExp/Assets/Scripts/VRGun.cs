@@ -15,6 +15,11 @@ public class VRGun : MonoBehaviour
 
     [Header("Effecten")]
     public ParticleSystem schietParticles; 
+    [Tooltip("Het geluid dat speelt als je de trekker overhaalt")]
+    public AudioClip schietGeluid; // Ik heb deze toegevoegd voor de duidelijkheid
+    [Tooltip("Het geluid dat speelt als de kogel in het wapen klikt")]
+    public AudioClip laadGeluid; // DIT IS NIEUW!
+    
     private AudioSource audioSource;
 
     [Header("Besturing")]
@@ -41,6 +46,12 @@ public class VRGun : MonoBehaviour
             grabInteractable.selectEntered.AddListener(Oppakken);
             grabInteractable.selectExited.AddListener(Loslaten);
         } 
+        
+        // Zorg dat het schietgeluid standaard in de AudioSource zit, mocht je dat zo hebben ingesteld
+        if (audioSource != null && audioSource.clip != null && schietGeluid == null)
+        {
+            schietGeluid = audioSource.clip;
+        }
     }
 
     void Update()
@@ -90,10 +101,10 @@ public class VRGun : MonoBehaviour
             return;
         }
 
-        // 1. Speel Geluid af (PlayOneShot zodat geluiden kunnen overlappen)
-        if (audioSource != null && audioSource.clip != null) 
+        // 1. Speel Schiet Geluid af
+        if (audioSource != null && schietGeluid != null) 
         {
-            audioSource.PlayOneShot(audioSource.clip);
+            audioSource.PlayOneShot(schietGeluid);
         }
 
         // 2. Speel Particle Effect af (Muzzle Flash)
@@ -125,6 +136,13 @@ public class VRGun : MonoBehaviour
             {
                 isGeladen = true;
                 Debug.Log("🔫 [DEBUG] Geweer geladen met actieve kogel!");
+                
+                // --- NIEUW: SPEEL HET LAADGELUID AF! ---
+                if (audioSource != null && laadGeluid != null)
+                {
+                    audioSource.PlayOneShot(laadGeluid);
+                }
+
                 Destroy(anderObject.gameObject); 
             }
             else if (status != null && !status.heeftEindstof)
