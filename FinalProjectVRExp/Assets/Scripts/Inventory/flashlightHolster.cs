@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using System.Collections;
 
 public class HolsterableLight : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class HolsterableLight : MonoBehaviour
     [Header("Holster Pose")]
     public Vector3 holsterLocalPosition = Vector3.zero;
     public Vector3 holsterLocalRotation = Vector3.zero;
-    private bool FirstPickup = false;
+    private static bool FirstPickup = false;
 
     public QuestData Quest;
     public QuestManager manager;
@@ -26,9 +27,13 @@ public class HolsterableLight : MonoBehaviour
     //subscribe to the Listener
     void OnEnable()
     {
-        grabInteractable.selectEntered.AddListener(OnGrabbed);
+        grabInteractable.selectEntered.RemoveListener(OnGrabbed);   // remove first
+        grabInteractable.selectEntered.AddListener(OnGrabbed);      // then add once
+        grabInteractable.selectExited.RemoveListener(OnReleased);
         grabInteractable.selectExited.AddListener(OnReleased);
     }
+
+
 
     //unsubscribe for memory leaks
     void OnDisable()
@@ -39,6 +44,7 @@ public class HolsterableLight : MonoBehaviour
 
     void OnGrabbed(SelectEnterEventArgs args)
     {
+        Debug.Log($"[HolsterableLight] Grabbed — FirstPickup={FirstPickup}, instanceID={GetInstanceID()}");
         if (FirstPickup == false)
         {
             KCSpawn.Spawn();
@@ -58,6 +64,12 @@ public class HolsterableLight : MonoBehaviour
     void OnReleased(SelectExitEventArgs args)
     {
         isHeld = false;
+        StartCoroutine(ReturnToHolsterNextFrame());
+    }
+
+    IEnumerator ReturnToHolsterNextFrame()
+    {
+        yield return null; // wait one frame for XR to finish releasing
         ReturnToHolster();
     }
 
@@ -65,11 +77,12 @@ public class HolsterableLight : MonoBehaviour
 
     void ReturnToHolster()
     {
+        if (isHeld) return; // safety check
+
         transform.SetParent(holsterPoint);
         transform.localPosition = holsterLocalPosition;
         transform.localRotation = Quaternion.Euler(holsterLocalRotation);
 
-        // Freeze it
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = true;
