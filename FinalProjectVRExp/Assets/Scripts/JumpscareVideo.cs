@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Video; 
+using UnityEngine.Video;
 using System.Collections;
 using UnityEngine.SceneManagement; // DIT IS NIEUW: Nodig om scenes te laden!
 
@@ -13,14 +13,14 @@ public class JumpscareVideo : MonoBehaviour
 
     [Header("Koppeling met Script 1")]
     [Tooltip("Sleep hier het JumpscareScript component in")]
-    public JumpscareScript extraJumpscare; 
-    
+    public JumpscareScript extraJumpscare;
+
     [Tooltip("Na hoeveel seconden video moet het plaatje in beeld knallen?")]
     public float vertragingVoorBeeld = 2.5f;
 
     [Header("Scene Overgang")]
     [Tooltip("Vul hier de exacte naam in van de scene waar je naartoe wilt (bijv. GameOver)")]
-    public string sceneOmTeLaden = "GameOverScene"; 
+    public string sceneOmTeLaden = "GameOverScene";
 
     private bool isGeraakt = false;
 
@@ -28,7 +28,7 @@ public class JumpscareVideo : MonoBehaviour
     {
         CheckMonsterHit(collision.gameObject);
     }
-    
+
     void OnTriggerEnter(Collider other)
     {
         CheckMonsterHit(other.gameObject);
@@ -36,6 +36,9 @@ public class JumpscareVideo : MonoBehaviour
 
     void CheckMonsterHit(GameObject anderObject)
     {
+
+        if (!enabled) return;
+
         if (anderObject.CompareTag("Seeker") && !isGeraakt)
         {
             Destroy(anderObject);
@@ -47,7 +50,7 @@ public class JumpscareVideo : MonoBehaviour
     IEnumerator SpeelVideoAf()
     {
         isGeraakt = true;
-        
+
         Debug.Log("🎬 Video Start!");
 
         // 1. Start de video
@@ -73,7 +76,7 @@ public class JumpscareVideo : MonoBehaviour
         // 5. Zet de video uit en ga naar de nieuwe scene!
         if (videoScherm != null) videoScherm.SetActive(false);
         if (videoPlayer != null) videoPlayer.Stop();
-        
+
         Debug.Log("💀 Jumpscare klaar, we laden scene: " + sceneOmTeLaden);
         SceneManager.LoadScene(sceneOmTeLaden);
     }
