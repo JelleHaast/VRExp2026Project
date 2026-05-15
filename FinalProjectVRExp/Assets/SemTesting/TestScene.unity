@@ -390,6 +390,18 @@ PrefabInstance:
       propertyPath: schietGeluid
       value: 
       objectReference: {fileID: 8300000, guid: faa0fd33fcc212a4cbc77d6f44e1c136, type: 3}
+    - target: {fileID: 6748697873981346265, guid: 876a9efcae3245e4ab66feeb8f437976, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748697873981346265, guid: 876a9efcae3245e4ab66feeb8f437976, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748697873981346265, guid: 876a9efcae3245e4ab66feeb8f437976, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
