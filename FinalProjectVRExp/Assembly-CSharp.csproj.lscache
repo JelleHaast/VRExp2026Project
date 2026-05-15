@@ -103,6 +103,7 @@ Assets/
   DemoDoor.cs
   DemoFirstPersonController.cs
  Scripts/
+  ActivationEntry.cs
   AutoScaler.cs
   AvatarBodyFollow.cs
   AwakeSettings.cs

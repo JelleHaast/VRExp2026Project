@@ -1,13 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-[System.Serializable]
-public class ScriptActivationEntry
-{
-    public GameObject targetObject;
-    public string scriptName;
-}
-
 public class KeycardScan : MonoBehaviour
 {
     public GameObject door;

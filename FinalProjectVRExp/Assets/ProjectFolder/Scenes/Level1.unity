@@ -2085,6 +2085,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6933855067447617659, guid: c5ddb45dd1195d549bca5097703ee810, type: 3}
+      propertyPath: scriptsToEnable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6933855067447617659, guid: c5ddb45dd1195d549bca5097703ee810, type: 3}
+      propertyPath: 'scriptsToEnable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2073881037}
+    - target: {fileID: 6933855067447617659, guid: c5ddb45dd1195d549bca5097703ee810, type: 3}
+      propertyPath: scriptsToEnable.Array.data[0].scriptName
+      value: CheckpointPatrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 6933855067447617659, guid: c5ddb45dd1195d549bca5097703ee810, type: 3}
+      propertyPath: scriptsToEnable.Array.data[0].targetObject
+      value: 
+      objectReference: {fileID: 2073881016}
     - target: {fileID: 8647970313173800771, guid: c5ddb45dd1195d549bca5097703ee810, type: 3}
       propertyPath: denied
       value: 
@@ -41155,6 +41171,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd5215e93d21c944a680f4e4ed5ab54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeekerNavAgent
+--- !u!114 &2073881037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 624652219944321043, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+  m_PrefabInstance: {fileID: 2109582984}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073881016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.ML-Agents::Unity.MLAgents.Policies.BehaviorParameters
 --- !u!1 &2074879335
 GameObject:
   m_ObjectHideFlags: 0
