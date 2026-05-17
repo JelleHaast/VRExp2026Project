@@ -16,7 +16,6 @@ public class HolsterableLight : MonoBehaviour
     [Header("Holster Pose")]
     public Vector3 holsterLocalPosition = Vector3.zero;
     public Vector3 holsterLocalRotation = Vector3.zero;
-    private static bool FirstPickup = false;
 
     public QuestData Quest;
     public QuestManager manager;
@@ -44,19 +43,19 @@ public class HolsterableLight : MonoBehaviour
 
     void OnGrabbed(SelectEnterEventArgs args)
     {
-        Debug.Log($"[HolsterableLight] Grabbed — FirstPickup={FirstPickup}, instanceID={GetInstanceID()}");
-        if (FirstPickup == false)
+        Debug.Log($"[HolsterableLight] Grabbed — Quest.isCompleted={Quest.isCompleted}, instanceID={GetInstanceID()}");
+
+        // Use QuestData as the single source of truth instead of static bool
+        if (!Quest.isCompleted)
         {
             KCSpawn.Spawn();
             spawner.Spawn();
             Quest.isCompleted = true;
             manager.CheckAllQuests();
-            FirstPickup = true;
         }
+
         isHeld = true;
         transform.SetParent(null);
-
-        // Unfreeze so XR Toolkit can move it
         rb.isKinematic = false;
         holsterPoint.rotation = Quaternion.Euler(0, holsterPoint.parent.eulerAngles.y, 0);
     }

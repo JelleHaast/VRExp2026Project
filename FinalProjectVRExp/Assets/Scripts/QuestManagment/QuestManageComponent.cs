@@ -20,4 +20,12 @@ public class QuestManager : MonoBehaviour
             SceneManager.LoadScene(nextSceneName);
         }
     }
+
+    public void ResetAllQuests()
+    {
+        foreach (QuestData quest in allQuests)
+        {
+            quest.isCompleted = false;
+        }
+    }
 }

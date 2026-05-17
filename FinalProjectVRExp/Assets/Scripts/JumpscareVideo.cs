@@ -24,6 +24,8 @@ public class JumpscareVideo : MonoBehaviour
 
     private bool isGeraakt = false;
 
+    public QuestManager questDeath;
+
     void OnCollisionEnter(Collision collision)
     {
         CheckMonsterHit(collision.gameObject);
@@ -41,6 +43,7 @@ public class JumpscareVideo : MonoBehaviour
 
         if (anderObject.CompareTag("Seeker") && !isGeraakt)
         {
+            questDeath.ResetAllQuests();
             Destroy(anderObject);
             StartCoroutine(SpeelVideoAf());
             if (VideoAudio != null) VideoAudio.Play();
