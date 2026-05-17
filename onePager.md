@@ -48,7 +48,7 @@ Een immersieve horrorervaring creëren in de diepte van de ruimte waar de speler
 - voorspelbaar.
 
 - voordeel: echt random ML-Agent gedrag kan misschien te moeilijk/onmogelijk worden.
-- nadeel: als de speler genoeg opnieuw speelt zal deze de acties kunnen voorspellen =>kan ervoor dat een spel juist saai wordt.
+- nadeel: als de speler genoeg opnieuw speelt zal deze de acties kunnen voorspellen =>kan ervoor zorgen dat een spel juist saai wordt.
 
 ### Waarom VR
 - actief bukken om te kunnen verstoppen.
