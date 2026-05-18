@@ -7,10 +7,17 @@ Je bent een mens op een ruimteship tot er plots een metoriet tegen het schip aan
 In deze tutorial zal er over de verschillende hoofd features een basis uitleg gegeven worden hoe deze werken en hoe de finale Agent tot zijn werking is bekomen.
 
 ## Methode
-- Installaties: 1. conda env: torch 1.7.1, mlagents=0.30.0, 
-2. python env: onnxconvertor-common(1.16.0), installatie: pip install onnxconverter-common [voor het converteren van een 32bit model naar een simpeler makkelijker draaiend fp16 model]
+Installaties:
 
-Verloop:
+| Omgeving   | Package              | Versie |
+|------------|----------------------|--------|
+| conda env  | torch                | 1.7.1  |
+| conda env  | mlagents             | 0.30.0 |
+| python env | onnxconverter-common | 1.16.0 |         
+
+installatie onnx convertor: pip install onnxconverter-common [voor het converteren van een 32bit model naar een simpeler makkelijker draaiend fp16 model]
+
+## Verloop:
 #### Spelers perspectief:
 1. Speler start in controle kamer.
 2. Speler zoekt een keycard om deur te openen.
@@ -147,12 +154,9 @@ Een immersieve horrorervaring creëren in de diepte van de ruimte waar de speler
 - Over het algemeen lijkt het dat er weinig afgeweken is van de one pager, er is een vrij realistisch haalbaar doel weggezet dat we behaald hebben met deze opracht, er was ook al een deel ervaring inverband met de limitaties van en en daarom was de ingebouwde nav agent aan bod gekomen.
 Wel in de kleine details zijn er dingen minder goed gingen/ moeilijker waren dan dat ik verwacht, zoals deuren zijn we voor schuif deuren gegaan en ook bijvoorbeeld het trainen van de AI was toch nog moeilijker dan verwacht om goed te krijgen.
 
+
 ## Resultaten (agent)
-
-## Conclusie
-samenvatting: Een immersieve omgeving in een ruimteschip waar je via deuren te openen en kleine puzzels op te lossen een Alien moet ontsnappen.
-
-resultaten: De agent leerde de speler vlot opsporen na voldoende traingstijd en het juist afstemmen van het curriculum-learning. Over het algemeen werkt hij in meerdere omgevingen maar soms kunnen er kleine struikeblokken zijn waar we de omgeving moeten af stemmen op de agent.
+ De agent leerde de speler vlot opsporen na voldoende traingstijd en het juist afstemmen van het curriculum-learning. Over het algemeen werkt hij in meerdere omgevingen maar soms kunnen er kleine struikeblokken zijn waar we de omgeving moeten af stemmen op de agent.
 
 Run1(Lege omgeving):
 ![Alt text for image](./Afbeeldingen/CumilativeReward/Run1.png)
@@ -183,6 +187,16 @@ Run3(fine tuning):
 Zelfde trainings omgeving als Run2
 
 Aangezien ik geobserveerd had dat de agent nog niet super goed in sommige hoeken terecht kan komen heb ik extra "edge cases" voorzien waarop deze meer betrouwbaar kan rond zoeken. dit kunnen kan geobserveerd warden aan de grote dallen (moeilijke edge cases) en hoe deze een groot deel minder voorkomen over tijd. Eventuele extra training per kamer waarin deze zich zal bewegen zou nog betere resultaten hebben kunnen geven in het finale project maar over het algemeen is de generalisatie over meerdere kamers met de juiste tags al redelijk goed.
+
+## Conclusie
+samenvatting: Een immersieve omgeving in een ruimteschip waar je via deuren te openen en kleine puzzels op te lossen een Alien moet ontsnappen.
+
+Run1:
+
+Run2:
+
+Run3:
+
 
 Persoonlijke visie: We zien de resultaten veel springen en dan beginnen stabiliseren dit komt overeen met het verwachte gedrag aangezien de omgeving complex en veranderlijk was en de seeker enkel op ray perception en zijn eigen velocity als observaties werkt. Dit zorgt ervoor dat er lange training verwacht wordt met hoge varieteit en grote sprongen in rewards en episode lengte.
 
