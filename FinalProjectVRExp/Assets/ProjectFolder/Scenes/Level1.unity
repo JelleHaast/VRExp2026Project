@@ -39941,6 +39941,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2853099495047982650, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
+      propertyPath: questDeath
+      value: 
+      objectReference: {fileID: 654333535}
     - target: {fileID: 4091258796490106328, guid: 17e83d056756853419bfb15d84ccbfc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 108.1

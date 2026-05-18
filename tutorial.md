@@ -154,9 +154,82 @@ samenvatting: Een immersieve omgeving in een ruimteschip waar je via deuren te o
 
 resultaten: De agent leerde de speler vlot opsporen na voldoende traingstijd en het juist afstemmen van het curriculum-learning. Over het algemeen werkt hij in meerdere omgevingen maar soms kunnen er kleine struikeblokken zijn waar we de omgeving moeten af stemmen op de agent.
 
-Persoonlijke visie:
+Run1(Lege omgeving):
+![Alt text for image](./Afbeeldingen/CumilativeReward/Run1.png)
+![Alt text for image](./Afbeeldingen/SceneLength/Run1.png)
+![Alt text for image](./Afbeeldingen/Scenes/EmptyScene.png)
+![Alt text for image](./Afbeeldingen/Scenes/BasicScene.png)
 
-Verbeteringen: 
+Aangezien het snappen van rond bewegen tot ik moet deze kubus met de hider oprapen snel bereikt wordt Zetten we de training direct verder in de basic scene hier geven we de seeker twee extra complexe taken, eerst had ik het open schap in het midden van het speelveld gezet met de hider hier achter en kort erna (aangezien deze verandering niet moeilijk genoeg was) heb ik de afgesloten hoek met de hider/seeker die hier achter spawned. Dit zorgt voor twee grote gedragsveranderingen. Hij leert ontsnappen uit nouw benepen hoeken en ook leert hij van door nouwere doorgangen te bewegen om zijn doel te bereieken. (Deze scene verandering kunnen we zien aan de grote neerval in reward en de sterke steiging van de episode tijd)
 
+
+
+Run2(geavanceerde omgeving):
+![Alt text for image](./Afbeeldingen/SceneLength/Run2.png)
+![Alt text for image](./Afbeeldingen/CumilativeReward/Run2.png)
+![Alt text for image](./Afbeeldingen/Scenes/FullAdvancedScene.png)
+
+In run2 wordt er geinisialiseert vanaf run1 om het basis gedrag van object awarness en het zoeken van de hider over te nemen in de complexere omgeving.
+
+De omgeving is moeilijker en moeilijker gemaakt tot aan de finale afbeelding die hier te zien is over de training heen. Doordat de omgeving veranderde en er geen vaste hider positie was, Kunnen we veel pieken en dallen zien tot wanneer deze beginnen af te vlakken in het correcte gedrag.
+
+De inspringen die we zien rond de 600k stappen was omdat ik vanaf hier de agent heb terug gezet naar de 500k checkpoint aangezien de agent in de mist begon te lopen aan de 600K stappen.
+
+
+
+Run3(fine tuning):
+![Alt text for image](./Afbeeldingen/SceneLength/Run3.png)
+![Alt text for image](./Afbeeldingen/CumilativeReward/Run3.png)
+Zelfde trainings omgeving als Run2
+
+Aangezien ik geobserveerd had dat de agent nog niet super goed in sommige hoeken terecht kan komen heb ik extra "edge cases" voorzien waarop deze meer betrouwbaar kan rond zoeken. dit kunnen kan geobserveerd warden aan de grote dallen (moeilijke edge cases) en hoe deze een groot deel minder voorkomen over tijd. Eventuele extra training per kamer waarin deze zich zal bewegen zou nog betere resultaten hebben kunnen geven in het finale project maar over het algemeen is de generalisatie over meerdere kamers met de juiste tags al redelijk goed.
+
+Persoonlijke visie: We zien de resultaten veel springen en dan beginnen stabiliseren dit komt overeen met het verwachte gedrag aangezien de omgeving complex en veranderlijk was en de seeker enkel op ray perception en zijn eigen velocity als observaties werkt. Dit zorgt ervoor dat er lange training verwacht wordt met hoge varieteit en grote sprongen in rewards en episode lengte.
+
+Verbeteringen: Eventuele extra fine tune traingen per omgeving zodat de seeker hierbinnen beter kan navigeren. Een eventuele sprint functie had ook wel interessant geweest als de speler bijvoorbeeld aan het lopen was en dat dan de locatie van het geluid als observatie doorgegeven wordt en de seeker zich zo snel mogelijk tot de speler begeeft.
 
 ## Bronnen
+
+#### Code, optimalisatie en algemene guides
+
+Valem Tutorials. (2024, February 25). Learn VR development in 3 hours - Unity VR tutorial complete course [Video]. YouTube. https://www.youtube.com/watch?v=YBQ_ps6e71k
+
+Nerd Head. (2022, April 27). Use occlusion culling like a PRO | Unity advanced tutorial [Video]. YouTube. https://www.youtube.com/watch?v=hv2CUi2eeBY
+
+Anthropic. (2026). Claude (claude-sonnet-4-6) [Large language model]. https://claude.ai
+
+Assets (Tools):
+Unity Technologies. (2025). XR Interaction Toolkit (Version 3.3.1) [Software package]. Unity Package Manager. 
+
+Unity Technologies. (2026). ML Agents (Version 4.0.3) [Software package]. Unity Package Manager. 
+
+
+#### Assets (3D)
+juanjo_sound (2025). Backrooms Entity Sound Effects [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/audio/sound-fx/backrooms-entity-sound-effects-324400
+
+Animatrics Studio (2025). Chemistry Lab Item Pack [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/chemistry-lab-items-pack-220212
+
+Terresquall (2025). Free Sci-Fi Office Pack [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/sci-fi/free-sci-fi-office-pack-195067
+
+Navarone (2025). Keypad FREE [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/p/keypad-free-262151
+
+Panchenko Lyudmila (2025). Monster Mutant 7 [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/characters/creatures/monster-mutant-7-188552
+
+Daniel Kole Productions (2025). MSFMC - Radar Dish [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/sci-fi/msfmc-radar-dish-52701
+
+Chris Nolet (2025). Quick Outline [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488
+
+MASH Virtual (2025). Sci fi Access Machine [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-access-machine-162924
+
+Sickhead Games (2020). Sci-Fi Construction Kit (Modular) [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-construction-kit-modular-159280
+
+Robson Cozendey (2023). Sci-Fi Music Loops Pack [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/audio/music/electronic/sci-fi-music-loops-pack-120186
+
+PULSAR BYTES (2017). Starfield Skybox [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/2d/textures-materials/sky/starfield-skybox-92717
+
+PolyOne Studio (2025). Weapons Pack - Bullets [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/weapons/weapons-pack-bullets-302702
+
+
+
+
+
