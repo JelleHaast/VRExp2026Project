@@ -26,6 +26,8 @@ public class JumpscareVideo : MonoBehaviour
 
     public QuestManager questDeath;
 
+    public RespawnManager respawnManager;
+
     void OnCollisionEnter(Collision collision)
     {
         CheckMonsterHit(collision.gameObject);
@@ -43,8 +45,7 @@ public class JumpscareVideo : MonoBehaviour
 
         if (anderObject.CompareTag("Seeker") && !isGeraakt)
         {
-            questDeath.ResetAllQuests();
-            Destroy(anderObject);
+            //questDeath.ResetAllQuests();
             StartCoroutine(SpeelVideoAf());
             if (VideoAudio != null) VideoAudio.Play();
         }
@@ -80,7 +81,10 @@ public class JumpscareVideo : MonoBehaviour
         if (videoScherm != null) videoScherm.SetActive(false);
         if (videoPlayer != null) videoPlayer.Stop();
 
-        Debug.Log("💀 Jumpscare klaar, we laden scene: " + sceneOmTeLaden);
-        SceneManager.LoadScene(sceneOmTeLaden);
+        isGeraakt = false;
+
+        //Debug.Log("💀 Jumpscare klaar, we laden scene: " + sceneOmTeLaden);
+        //SceneManager.LoadScene(sceneOmTeLaden);
+        respawnManager.Respawn();
     }
 }

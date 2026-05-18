@@ -9,8 +9,11 @@ public class QuestManager : MonoBehaviour
 
     public string nextSceneName;
 
+    public RespawnManager respawnManager;
+
     public void CheckAllQuests()
     {
+        respawnManager.UpdateRespawnPoint();
         Debug.Log("QuestCompleted");
         bool gameFinished = allQuests.All(q => q.isCompleted);
 
