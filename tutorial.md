@@ -4,7 +4,7 @@
 Spruyt Sem, Jelle Haast
 
 ## Inleiding
-
+In dit verslag wordt de ontwikkeling van het spel "Space Escape" beschreven, een VR-horrorgame gemaakt voor op de Meta Quest 2/3/3s te werken. De speler bevindt zich in een beschadigd ruimteschip en moet ontsnappen aan een alien die aangedreven wordt door een getrainde ML-Agent. Dit verslag dient als een tutorial en demonstreert hoe je een basis VR-omgeving opbouwt in Unity en een ML-Agent traint via curriculum-learning. De installatie, de opbouw van de agent, de trainingsresultaten en de optimalisaties die nodig zijn voor een vlotte VR-ervaring worden hier besproken.
 
 ## Samenvatting
 Na deze tutorial zou de lezer in staat moeten zijn een basis VR project aan te maken en een MLAgent voor in deze omgeving moeten kunnen trainen
