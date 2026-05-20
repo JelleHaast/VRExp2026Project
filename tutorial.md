@@ -1,10 +1,13 @@
 # Space escape
 
+## Team
+Spruyt Sem, Jelle Haast
+
 ## Inleiding
-Je bent een mens op een ruimteship tot er plots een metoriet tegen het schip aanvliegt en alls verandert in een grote nachtmerrie, je wordt wakker in de controle kamer in een verwoest schip met het onbekende voorbij de deur.
+
 
 ## Samenvatting
-In deze tutorial zal er over de verschillende hoofd features een basis uitleg gegeven worden hoe deze werken en hoe de finale Agent tot zijn werking is bekomen.
+Na deze tutorial zou de lezer in staat moeten zijn een basis VR project aan te maken en een MLAgent voor in deze omgeving moeten kunnen trainen
 
 ## Methode
 Installaties:
@@ -17,13 +20,13 @@ Installaties:
 
 installatie onnx convertor: pip install onnxconverter-common [voor het converteren van een 32bit model naar een simpeler makkelijker draaiend fp16 model]
 
-## Verloop:
+### Verloop:
 #### Spelers perspectief:
 1. Speler start in controle kamer.
 2. Speler zoekt een keycard om deur te openen.
 3. Speler gaat naar de opslagruimte voor een lamp te zoeken.
 4. Agent spawned in en kan speler aanvallen.
-5. Speler zoekt in de opslagruimte naar de keycard.
+5. Speler zoekt in de opslagruimte naar de keycard e kan zich verstoppen voor de Agent.
 6. Speler gaat naar volgende ruimte met deze keycard.
 7. Speler ziet verschillende monitors in de server ruimte met getallen die hij kan gebruiken bij een numpad in de observatie ruimte.
 8. peler gaat deze nummers ingeven op de numpad in de observatieruimte.
@@ -31,10 +34,10 @@ installatie onnx convertor: pip install onnxconverter-common [voor het converter
 
 * volgende stappen kunnen in wilkeurige volgorde
 
---------------------------------------------------------
+```
 10. speler neemt wapen
 11. speler gaat het serum maken
---------------------------------------------------------
+```
 12. Speler giet serum over kogel
 13. speler dood Agent
 14. Gewonnen
@@ -44,16 +47,23 @@ installatie onnx convertor: pip install onnxconverter-common [voor het converter
 2. Agent zoekt achter speler en achtervolgt als hij hen ziet.
 3. Als speler keycard heeft en naar volgende ruimte gaat, activeer unity ingebouwde nav agent naar de volgende ruimte.
 * loop
-------
+```
 4. navigeer naar de verschillende ruimtes en als de ruimte wordt bereikt verander dan terug naar  eigen getrainde ML agent.
-------
+```
 
-- * Observaties: 3D ray perception, Agent velocity
+Agent specificaties:
 
-* acties: Draaien, voorwaarts & achterwaarts bewegen
-
-* beloningen: Hider vinden(10f), dichter tot bij hider komen(0.05f x afstad hider)
-* Afstraffingen: tijd nemen(-0.001f= vareerend doorheen de training), muur contact(-0.5f), obstacle contact(veel te langer tegenaan obstakel veel te meer negative reward)
+| Type          | Beschrijving                          | Waarde                                              |
+|---------------|---------------------------------------|-----------------------------------------------------|
+| Observaties   | 3D ray perception                     | —                                                   |
+| Observaties   | Agent velocity                        | —                                                   |
+| Acties        | Draaien                               | —                                                   |
+| Acties        | Voorwaarts & achterwaarts bewegen     | —                                                   |
+| Beloning      | Hider vinden                          | +10                                                 |
+| Beloning      | Dichter bij hider komen               | +0.05 × afstand tot hider                           |
+| Afstraffing   | Tijd nemen                            | −0.001 (variërend doorheen de training)             |
+| Afstraffing   | Muurcontact                           | −0.5                                                |
+| Afstraffing   | Obstakelcontact                       | Negatief, evenredig met contactduur                 |
 
 - Beschrijving project
 ### Beschrijving van de objecten
@@ -69,16 +79,22 @@ installatie onnx convertor: pip install onnxconverter-common [voor het converter
 #### Items
 
 - **Keycard (x3)**: Ontgrendelt afgesloten deuren tussen de ruimtes.
+    - Door een keycard met de juiste kleur nabij een keycard scanner te houden zal deze een deur openen
 - **Lamp**: Item dat de speler nodig heeft om verder te gaan.
+    - Na eerste keer oprapen hangt deze auomatisch aan de rechterzijde van je lichaam en kan je deze nog altijd vast nemen.
 - **Serum**: Aangemaakt in het labo, noodzakelijk om de alien te verslaan.
+    - Dient op een kogel te worden gegoten voor wanneer deze de alien zal kunnen vermoorden.
 - **Wapen**: Gebruikt in combinatie met het serum om de alien te doden.
+    - Dient gebruikt te worden met voorgaande kogel om op de alien te kunnen schieten
+- **NumPad**:  In de observatie ruimte bevind zich een numpad waar de juiste nummers van in de server ruimtes gevonder kunnen worden.
+    - De nummmers kunnen ingegeven worden door met je hand op de knoppen te drukken.
 
 #### Personages
 
 - **Speler**: Hoofdpersoon, bestuurd door de speler in VR.
 - **Alien (Agent)**: Een alien die als ML-Agent getraind is omde speler op te sporen en aan te vallen.
 
-- one pager:
+### one pager:
 
 ------
 
@@ -148,30 +164,41 @@ Een immersieve horrorervaring creëren in de diepte van de ruimte waar de speler
 - interactie vooral omgevings gebonden houden zonder te veel gebruikt van de knoppen buiten de grip knop van de controller.
 
 -----
+### afwijkingen tegenover de one pager
 
-
-
-- Over het algemeen lijkt het dat er weinig afgeweken is van de one pager, er is een vrij realistisch haalbaar doel weggezet dat we behaald hebben met deze opracht, er was ook al een deel ervaring inverband met de limitaties van en en daarom was de ingebouwde nav agent aan bod gekomen.
+Over het algemeen lijkt het dat er weinig afgeweken is van de one pager, er is een vrij realistisch haalbaar doel weggezet dat we behaald hebben met deze opracht, er was ook al een deel ervaring inverband met de limitaties van en en daarom was de ingebouwde nav agent aan bod gekomen.
 Wel in de kleine details zijn er dingen minder goed gingen/ moeilijker waren dan dat ik verwacht, zoals deuren zijn we voor schuif deuren gegaan en ook bijvoorbeeld het trainen van de AI was toch nog moeilijker dan verwacht om goed te krijgen.
+
+## Optimalisaties
+
+Aangezien onze game goed moet kunnen draaien op een stabiel 72fps op de Meta Quest voor een goede speel ervaring en zogenaamde "motion sickness" te voorkomen, hebben we enkele simpele optimalisatie technieken toegepast:
+
+1. Static batching: hierbij laad de gpu objecten samen in en dit verminderd het aantal batches en werk voor de GPU.
+2. Baked occlusion culling: zorgt ervoor als objecten buiten het zicht van de camera zijn deze niet in gerenderendert moeten worden en bespaart CPU tijd.
+3. Gekwantiseerd MLAgent model 32bit > FP16: Zal minder plaats in nemen op het geheugen en vermindert CPU last.
+4. Textuur resolutie per object aanpassen naar gelang hoe belangrijk de textuur is.
+5. Shaduwen zijn zwaar op de quest dus hebben we deze zo veel mogelijk proberen te vermlijden voor nu.
+6. MSAA mag niet te hoog maar ook niet te laag (voorkomt dat randen er gekarteld uit zien, vraagt meer GPU)
+
 
 
 ## Resultaten (agent)
  De agent leerde de speler vlot opsporen na voldoende traingstijd en het juist afstemmen van het curriculum-learning. Over het algemeen werkt hij in meerdere omgevingen maar soms kunnen er kleine struikeblokken zijn waar we de omgeving moeten af stemmen op de agent.
 
 Run1(Lege omgeving):
-![Alt text for image](./Afbeeldingen/CumilativeReward/Run1.png)
-![Alt text for image](./Afbeeldingen/SceneLength/Run1.png)
-![Alt text for image](./Afbeeldingen/Scenes/EmptyScene.png)
-![Alt text for image](./Afbeeldingen/Scenes/BasicScene.png)
+![CumilativeReward](./Afbeeldingen/CumilativeReward/Run1.png)
+![SceneLength](./Afbeeldingen/SceneLength/Run1.png)
+![EmptyScene](./Afbeeldingen/Scenes/EmptyScene.png)
+![BasicScene](./Afbeeldingen/Scenes/BasicScene.png)
 
 Aangezien het snappen van rond bewegen tot ik moet deze kubus met de hider oprapen snel bereikt wordt Zetten we de training direct verder in de basic scene hier geven we de seeker twee extra complexe taken, eerst had ik het open schap in het midden van het speelveld gezet met de hider hier achter en kort erna (aangezien deze verandering niet moeilijk genoeg was) heb ik de afgesloten hoek met de hider/seeker die hier achter spawned. Dit zorgt voor twee grote gedragsveranderingen. Hij leert ontsnappen uit nouw benepen hoeken en ook leert hij van door nouwere doorgangen te bewegen om zijn doel te bereieken. (Deze scene verandering kunnen we zien aan de grote neerval in reward en de sterke steiging van de episode tijd)
 
 
 
 Run2(geavanceerde omgeving):
-![Alt text for image](./Afbeeldingen/SceneLength/Run2.png)
-![Alt text for image](./Afbeeldingen/CumilativeReward/Run2.png)
-![Alt text for image](./Afbeeldingen/Scenes/FullAdvancedScene.png)
+![SceneLength](./Afbeeldingen/SceneLength/Run2.png)
+![CumilativeReward](./Afbeeldingen/CumilativeReward/Run2.png)
+![FullAdvancedScene](./Afbeeldingen/Scenes/FullAdvancedScene.png)
 
 In run2 wordt er geinisialiseert vanaf run1 om het basis gedrag van object awarness en het zoeken van de hider over te nemen in de complexere omgeving.
 
@@ -189,16 +216,16 @@ Zelfde trainings omgeving als Run2
 Aangezien ik geobserveerd had dat de agent nog niet super goed in sommige hoeken terecht kan komen heb ik extra "edge cases" voorzien waarop deze meer betrouwbaar kan rond zoeken. dit kunnen kan geobserveerd warden aan de grote dallen (moeilijke edge cases) en hoe deze een groot deel minder voorkomen over tijd. Eventuele extra training per kamer waarin deze zich zal bewegen zou nog betere resultaten hebben kunnen geven in het finale project maar over het algemeen is de generalisatie over meerdere kamers met de juiste tags al redelijk goed.
 
 ## Conclusie
-samenvatting: Een immersieve omgeving in een ruimteschip waar je via deuren te openen en kleine puzzels op te lossen een Alien moet ontsnappen.
+samenvatting: Een ruimteschip waar je via deuren te openen en kleine puzzels op te lossen een Alien moet ontsnappen.
 
-Run1:
+Run1: Deze run is gebruikt om snel de basis behoefte aan de agent aan te leren zodat hij sneller weet aanraken = goed. Tijdens deze training is ook een heel simpele omgeving met kasten gemaakt zodat hij kan leren om hier rond te gaan navigeren.
 
-Run2:
+Run2: Het doel van deze run was de agent te gaan leren om doorheen een complexere omgeving te gaan zoeken en ook geen "bang" te laten hebben voor kleinere hoeken te gaan bekijken. Hier werd er gestart met een simpele omgeving met een aantal kasten waar hij doorheen moest bewegen om de hider te vinden. Met dan verder doorheen de training dozen, kisten en afgesloten hoeken waarin hij de hider moest gaan zoeken of zelf uit moet gaan navigeren.
 
-Run3:
+Run3: Deze run is gedaan nadat mij opviel dat er nog enkele situaties zijn waar de agent het moeilijk mee heeft om te gaan navigeren, hierbij heb ik ook de agent een hogere snelheid gegeven aangezien het ons opviel dat het anders te makkelijk was om rond de agent te bewegen zonder echt te verstoppen.
 
 
-Persoonlijke visie: We zien de resultaten veel springen en dan beginnen stabiliseren dit komt overeen met het verwachte gedrag aangezien de omgeving complex en veranderlijk was en de seeker enkel op ray perception en zijn eigen velocity als observaties werkt. Dit zorgt ervoor dat er lange training verwacht wordt met hoge varieteit en grote sprongen in rewards en episode lengte.
+Persoonlijke visie: We zien de resultaten veel sprongen maken en dan beginnen stabiliseren dit komt overeen met het verwachte gedrag aangezien de omgeving complex en veranderlijk was en de seeker enkel op ray perception en zijn eigen velocity als observaties werkt. Dit zorgt ervoor dat er lange training verwacht wordt met hoge varieteit en grote sprongen in rewards en episode lengte.
 
 Verbeteringen: Eventuele extra fine tune traingen per omgeving zodat de seeker hierbinnen beter kan navigeren. Een eventuele sprint functie had ook wel interessant geweest als de speler bijvoorbeeld aan het lopen was en dat dan de locatie van het geluid als observatie doorgegeven wordt en de seeker zich zo snel mogelijk tot de speler begeeft.
 
