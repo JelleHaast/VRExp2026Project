@@ -1,31 +1,53 @@
 using UnityEngine;
+using System.Collections;
 
-public class TriggerNarrator1 : MonoBehaviour
+public class TriggerNarrator : MonoBehaviour
 {
-    [Header("Audio Instellingen")]
-    public AudioSource radioAudioSource; // De AudioSource van je speler/radio
-    public AudioClip storageRoomBericht; // Het nieuwe audiofragment
+    private AudioSource mijnAudio;
+    private bool isGetriggerd = false;
 
-    private bool isAlAfgespeeld = false; // Zorgt dat hij het maar 1 keer zegt
+    [Header("De ANDERE twee Narrator AudioSources")]
+    public AudioSource andereNarratorA;
+    public AudioSource andereNarratorB;
 
-    // Deze functie vuurt af zodra IETS de onzichtbare box raakt
+    void Start()
+    {
+        mijnAudio = GetComponent<AudioSource>();
+        if (mijnAudio == null) Debug.LogError("❌ [FOUT] " + gameObject.name + " mist een AudioSource component!");
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        // 1. Check of de stem al geweest is
-        if (isAlAfgespeeld) return;
+        if (isGetriggerd) return;
 
-        // 2. Check of het wel ECHT de speler is die erdoorheen loopt 
-        // (en niet een kogel of een monster)
         if (other.CompareTag("Hider") || other.CompareTag("MainCamera"))
         {
-            if (radioAudioSource != null && storageRoomBericht != null)
-            {
-                // Vervang het huidige geluid en speel af
-                radioAudioSource.clip = storageRoomBericht;
-                radioAudioSource.Play();
-                
-                isAlAfgespeeld = true; // Zet hem op true zodat hij niet blijft herhalen
-            }
+            isGetriggerd = true;
+            Debug.Log("🚶‍♂️ [STAP 1] De speler liep in de trigger van: " + gameObject.name);
+            StartCoroutine(WachtOpBeurtEnSpeelAf());
+        }
+    }
+
+    IEnumerator WachtOpBeurtEnSpeelAf()
+    {
+        Debug.Log("⏳ [STAP 2] " + gameObject.name + " checkt of de andere narrators aan het praten zijn...");
+
+        // Blijf wachten ZOLANG narrator A óf narrator B aan het praten is
+        yield return new WaitWhile(() => 
+            (andereNarratorA != null && andereNarratorA.isPlaying) || 
+            (andereNarratorB != null && andereNarratorB.isPlaying)
+        );
+
+        Debug.Log("✅ [STAP 3] De rest is stil! " + gameObject.name + " mag nu beginnen.");
+
+        if (mijnAudio != null && mijnAudio.clip != null)
+        {
+            mijnAudio.Play();
+            Debug.Log("🔊 [STAP 4] Geluid van " + gameObject.name + " speelt NU af!");
+        }
+        else
+        {
+            Debug.LogError("❌ [FOUT] " + gameObject.name + " heeft GEEN audiobestand (AudioClip) in zijn AudioSource staan!");
         }
     }
 }

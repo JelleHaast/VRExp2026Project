@@ -524,6 +524,7 @@ GameObject:
   - component: {fileID: 30693580}
   - component: {fileID: 30693579}
   - component: {fileID: 30693578}
+  - component: {fileID: 30693584}
   m_Layer: 0
   m_Name: NarratorTrigger1
   m_TagString: Untagged
@@ -640,8 +641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15eb30e570a7dd41a10b601f37a331d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerNarrator1
-  radioAudioSource: {fileID: 30693578}
-  storageRoomBericht: {fileID: 8300000, guid: 23e0ab9424fa3434cbddacaf7e8b9aed, type: 3}
+  andereNarratorA: {fileID: 1015018876}
+  andereNarratorB: {fileID: 371052093}
 --- !u!65 &30693580
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -735,6 +736,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &30693584
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30693577}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &31893355
 GameObject:
   m_ObjectHideFlags: 0
@@ -6981,6 +7009,7 @@ GameObject:
   - component: {fileID: 371052095}
   - component: {fileID: 371052094}
   - component: {fileID: 371052093}
+  - component: {fileID: 371052099}
   m_Layer: 0
   m_Name: NarratorTrigger1 (1)
   m_TagString: Untagged
@@ -7097,8 +7126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15eb30e570a7dd41a10b601f37a331d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerNarrator1
-  radioAudioSource: {fileID: 371052093}
-  storageRoomBericht: {fileID: 8300000, guid: 85bc9499645ac2d4ba9cfc18a3605d3e, type: 3}
+  andereNarratorA: {fileID: 1015018876}
+  andereNarratorB: {fileID: 30693578}
 --- !u!65 &371052095
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7192,6 +7221,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &371052099
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371052092}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &372687236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5250665367672705345, guid: c5ddb45dd1195d549bca5097703ee810, type: 3}
@@ -18622,8 +18678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6a74c0b39bed345944898ae03913a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Narration1Script
-  radioAudioSource: {fileID: 1015018876}
-  wachttijd: 2
+  trigger1Audio: {fileID: 30693578}
+  trigger2Audio: {fileID: 371052093}
 --- !u!4 &1015018878
 Transform:
   m_ObjectHideFlags: 0

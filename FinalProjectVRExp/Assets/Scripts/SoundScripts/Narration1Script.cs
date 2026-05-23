@@ -1,33 +1,37 @@
 using UnityEngine;
+using System.Collections;
 
-public class Narration1Script : MonoBehaviour
+public class NarratorTimer : MonoBehaviour
 {
-    [Header("Instellingen")]
-    [Tooltip("Sleep hier de AudioSource in die het radiobericht moet afspelen")]
-    public AudioSource radioAudioSource;
+    private AudioSource mijnAudio;
 
-    [Tooltip("Aantal seconden wachten voordat het bericht start")]
-    public float wachttijd = 10f;
+    [Header("Andere Triggers om naar te luisteren")]
+    public AudioSource trigger1Audio;
+    public AudioSource trigger2Audio;
 
     void Start()
     {
-        // We gebruiken Invoke om een functie na een bepaalde tijd aan te roepen
-        Invoke("SpeelBerichtAf", wachttijd);
-
-        Debug.Log("⏱️ Timer gestart: Radiobericht speelt over " + wachttijd + " seconden.");
+        mijnAudio = GetComponent<AudioSource>();
+        StartCoroutine(WachtEnSpeelAf());
     }
 
-    void SpeelBerichtAf()
+    IEnumerator WachtEnSpeelAf()
     {
-        // Controleer eerst of er wel een AudioSource is ingesteld
-        if (radioAudioSource != null)
+        // 1. Wacht eerst braaf de 10 seconden af
+        yield return new WaitForSeconds(10f);
+
+        // 2. Check of een van de andere twee triggers TOEVALLIG al aan het praten is.
+        // Zo ja? Dan pauzeert dit script hier totdat ze allebei stil zijn!
+        yield return new WaitWhile(() => 
+            (trigger1Audio != null && trigger1Audio.isPlaying) || 
+            (trigger2Audio != null && trigger2Audio.isPlaying)
+        );
+
+        // 3. Nu is de kust veilig, speel het geluid af!
+        if (mijnAudio != null && mijnAudio.clip != null)
         {
-            radioAudioSource.Play();
-            Debug.Log("📻 Radiobericht speelt nu af!");
-        }
-        else
-        {
-            Debug.LogError("⚠️ Je bent vergeten de AudioSource in het script te slepen!");
+            mijnAudio.Play();
+            Debug.Log("📻 Timer-narrator start met praten na 10 seconden (en nadat anderen stil zijn)!");
         }
     }
 }
