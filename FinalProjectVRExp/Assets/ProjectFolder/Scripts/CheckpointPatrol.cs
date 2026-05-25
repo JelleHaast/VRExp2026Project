@@ -49,7 +49,7 @@ public class CheckpointPatrol : MonoBehaviour
     {
         if (playerTransform == null) return;
 
-        if (CanSeePlayer())
+        if (CanSeePlayer() && nav.enabled)
         {
             StartChasing();
             return;

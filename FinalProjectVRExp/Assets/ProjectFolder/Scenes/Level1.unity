@@ -2320,6 +2320,10 @@ PrefabInstance:
       value: 0.487
       objectReference: {fileID: 0}
     - target: {fileID: 6933855067447617659, guid: c5ddb45dd1195d549bca5097703ee810, type: 3}
+      propertyPath: doorRiseHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6933855067447617659, guid: c5ddb45dd1195d549bca5097703ee810, type: 3}
       propertyPath: scriptsToEnable.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2351,6 +2355,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1078393152}
+    - target: {fileID: 8647970313173800771, guid: c5ddb45dd1195d549bca5097703ee810, type: 3}
+      propertyPath: doorRiseHeight
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -36302,6 +36310,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3439170017752735452, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
+      propertyPath: doorRiseHeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3632969880443453258, guid: 7d0c41182bad77142b8401df47e1bc41, type: 3}
       propertyPath: m_Size.x
       value: 0.18805695
@@ -46485,7 +46497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 685f3c2516b9d3041970058318a5c349, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.735466
+      value: -8.01
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 685f3c2516b9d3041970058318a5c349, type: 3}
       propertyPath: m_LocalPosition.z
@@ -46760,7 +46772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: waitTime
-      value: 7
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: m_Enabled
@@ -46772,15 +46784,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: chaseSpeed
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: normalSpeed
-      value: 4
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: fieldOfViewAngle
-      value: 180
+      value: 185
       objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: obstacleMask.m_Bits
@@ -46788,7 +46800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: maxDetectionDistance
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: checkpoints.Array.size
