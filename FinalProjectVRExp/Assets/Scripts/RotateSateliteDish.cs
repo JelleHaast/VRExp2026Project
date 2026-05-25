@@ -12,6 +12,10 @@ public class RotateObject : MonoBehaviour
     private float rotated = 0f;
     private bool rotating = false;
 
+    public void Start()
+    {
+        StartRotation();
+    }
     public void StartRotation()
     {
         if (!rotating)
