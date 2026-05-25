@@ -18,12 +18,12 @@ public class NarratorTimer : MonoBehaviour
     IEnumerator WachtEnSpeelAf()
     {
         // 1. Wacht eerst braaf de 10 seconden af
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(1f);
 
         // 2. Check of een van de andere twee triggers TOEVALLIG al aan het praten is.
         // Zo ja? Dan pauzeert dit script hier totdat ze allebei stil zijn!
-        yield return new WaitWhile(() => 
-            (trigger1Audio != null && trigger1Audio.isPlaying) || 
+        yield return new WaitWhile(() =>
+            (trigger1Audio != null && trigger1Audio.isPlaying) ||
             (trigger2Audio != null && trigger2Audio.isPlaying)
         );
 

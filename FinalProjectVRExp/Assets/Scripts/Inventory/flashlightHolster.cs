@@ -13,6 +13,8 @@ public class HolsterableLight : MonoBehaviour
     public GameObject monster;
     public SeekerSpawnManager spawner;
 
+    public lightManager lights;
+
     [Header("Holster Pose")]
     public Vector3 holsterLocalPosition = Vector3.zero;
     public Vector3 holsterLocalRotation = Vector3.zero;
@@ -52,6 +54,7 @@ public class HolsterableLight : MonoBehaviour
             spawner.Spawn();
             Quest.isCompleted = true;
             manager.CheckAllQuests();
+            lights.AllTurnOff();
         }
 
         isHeld = true;
