@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 8095764305519775628}
   - component: {fileID: 5635154142647194409}
   - component: {fileID: 2853099495047982650}
+  - component: {fileID: 194612780079690158}
   m_Layer: 2
   m_Name: XR Origin (XR Rig)
   m_TagString: Hider
@@ -236,6 +237,27 @@ MonoBehaviour:
   sceneOmTeLaden: Level0
   questDeath: {fileID: 0}
   respawnManager: {fileID: 0}
+--- !u!65 &194612780079690158
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998214411868958333}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 4.18, z: 0.5}
+  m_Center: {x: 0.08679591, y: 1.9168298, z: 0.0036934838}
 --- !u!1 &1481552088812228161
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +579,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -7081285606229357941, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_WalkSpeed: 3
-  m_RunSpeed: 6
+  m_RunSpeed: 4.5
   m_RightHandMovementDirection: 0
 --- !u!1 &1935186833840845422
 GameObject:
@@ -1508,7 +1530,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -1526,7 +1548,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f7bb4effafc5810448551a7b54e3ffe2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.804
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1975,7 +1997,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
