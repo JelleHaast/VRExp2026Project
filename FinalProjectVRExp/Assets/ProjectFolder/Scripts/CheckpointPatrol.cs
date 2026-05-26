@@ -6,7 +6,10 @@ using System.Collections;
 public class CheckpointPatrol : MonoBehaviour
 {
     [Header("Patrol Settings")]
-    public Transform[] checkpoints;
+    public Transform[] checkpoints1;
+    public Transform[] checkpoints2;
+
+    public QuestData quest;
     public float reachRadius = 1.5f;
     public float waitTime = 20.0f;
 
@@ -28,6 +31,7 @@ public class CheckpointPatrol : MonoBehaviour
     private int currentIndex = 0;
     private bool isWaiting = false;
     private bool isChasing = false;
+    private Transform[] _activeCheckpoints;
 
     void Start()
     {
@@ -37,17 +41,39 @@ public class CheckpointPatrol : MonoBehaviour
         seekerAgent.enabled = false;
         nav.enabled = true;
 
+        _activeCheckpoints = checkpoints1;
+
         GameObject player = GameObject.FindWithTag(targetTag);
         if (player != null)
             playerTransform = player.transform;
 
-        if (checkpoints.Length > 0)
-            nav.SetDestination(checkpoints[currentIndex].position);
+        if (_activeCheckpoints.Length > 0)
+            nav.SetDestination(_activeCheckpoints[currentIndex].position);
     }
 
     void Update()
     {
         if (playerTransform == null) return;
+
+        // Detect quest completion and switch routes immediately
+        if (quest.isCompleted && _activeCheckpoints != checkpoints2)
+        {
+            _activeCheckpoints = checkpoints2;
+            currentIndex = 0;
+            isWaiting = false;
+            isChasing = false;
+            StopAllCoroutines();
+
+            // Re-enable nav in case it was disabled during ML scan
+            seekerAgent.enabled = false;
+            nav.enabled = true;
+            nav.isStopped = false;
+            nav.speed = normalSpeed;
+
+            nav.SetDestination(_activeCheckpoints[0].position);
+            Debug.Log("Quest completed! Switching to checkpoint route 2.");
+            return;
+        }
 
         if (CanSeePlayer() && nav.enabled)
         {
@@ -55,14 +81,12 @@ public class CheckpointPatrol : MonoBehaviour
             return;
         }
 
-        // Lost sight of player return to patrol
         if (isChasing)
         {
             StopChasing();
             return;
         }
 
-        // Normal patrol logic
         if (!isWaiting && nav.enabled && !nav.pathPending && nav.remainingDistance < reachRadius)
         {
             StartCoroutine(PatrolRoutine());
@@ -95,12 +119,11 @@ public class CheckpointPatrol : MonoBehaviour
         {
             isChasing = true;
             isWaiting = false;
-            StopAllCoroutines(); // Cancel any active wait at a checkpoint
+            StopAllCoroutines();
             nav.speed = chaseSpeed;
             Debug.Log("Player spotted! Chasing.");
         }
 
-        // Keep updating destination every frame while chasing
         nav.SetDestination(playerTransform.position);
     }
 
@@ -108,9 +131,7 @@ public class CheckpointPatrol : MonoBehaviour
     {
         isChasing = false;
         nav.speed = normalSpeed;
-
-        // Resume patrol from the nearest next checkpoint
-        nav.SetDestination(checkpoints[currentIndex].position);
+        nav.SetDestination(_activeCheckpoints[currentIndex].position);
         Debug.Log("Lost sight of player, resuming patrol.");
     }
 
@@ -130,8 +151,8 @@ public class CheckpointPatrol : MonoBehaviour
         nav.isStopped = false;
         nav.speed = normalSpeed;
 
-        currentIndex = (currentIndex + 1) % checkpoints.Length;
-        nav.SetDestination(checkpoints[currentIndex].position);
+        currentIndex = (currentIndex + 1) % _activeCheckpoints.Length;
+        nav.SetDestination(_activeCheckpoints[currentIndex].position);
 
         Debug.Log("Scan complete: resuming patrol to next checkpoint");
         isWaiting = false;
