@@ -167,7 +167,7 @@ MonoBehaviour:
   checkpoints2:
   - {fileID: 0}
   - {fileID: 0}
-  quest: {fileID: 0}
+  quest: {fileID: 11400000, guid: aa7960333daf7a941915ef50aea28425, type: 2}
   reachRadius: 1.5
   waitTime: 20
   seekerAgent: {fileID: 684409417885963094}
@@ -176,7 +176,7 @@ MonoBehaviour:
   fieldOfViewAngle: 180
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   normalSpeed: 3.5
   chaseSpeed: 5
 --- !u!54 &7213120031093113414
@@ -236,7 +236,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6743886348708290199}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5

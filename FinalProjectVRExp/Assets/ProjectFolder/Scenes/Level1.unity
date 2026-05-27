@@ -22071,10 +22071,6 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 2079694309}
-    - target: {fileID: 3401888744338257726, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5738388265846206377, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: manager
       value: 
@@ -22122,14 +22118,6 @@ PrefabInstance:
     - target: {fileID: 7874103078014142846, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: quest
-      value: 
-      objectReference: {fileID: 11400000, guid: aa7960333daf7a941915ef50aea28425, type: 2}
-    - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: 'checkpoints1.Array.data[0]'
