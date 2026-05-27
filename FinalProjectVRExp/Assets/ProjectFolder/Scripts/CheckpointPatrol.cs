@@ -68,7 +68,6 @@ public class CheckpointPatrol : MonoBehaviour
             seekerAgent.enabled = false;
             nav.enabled = true;
             nav.isStopped = false;
-            nav.speed = normalSpeed;
 
             nav.SetDestination(_activeCheckpoints[0].position);
             Debug.Log("Quest completed! Switching to checkpoint route 2.");
