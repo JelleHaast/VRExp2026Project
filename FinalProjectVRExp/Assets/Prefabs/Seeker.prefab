@@ -131,7 +131,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  rotationMultiplier: 3
+  rotationMultiplier: 4
   speedMultiplier: 7
   spawner: {fileID: 0}
 --- !u!114 &7980009781216359136
