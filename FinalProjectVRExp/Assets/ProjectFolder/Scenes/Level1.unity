@@ -18965,6 +18965,7 @@ MonoBehaviour:
   rotationSpeed: 20
   targetAngle: 240
   audioSource: {fileID: 1733448649}
+  turnOn: 0
   Quest: {fileID: 11400000, guid: aa7960333daf7a941915ef50aea28425, type: 2}
   manager: {fileID: 654333535}
 --- !u!82 &1733448649
@@ -22074,6 +22075,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5738388265846206377, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 654333535}
     - target: {fileID: 6743886348708290199, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: m_Name
       value: Seeker
@@ -22122,6 +22127,10 @@ PrefabInstance:
       propertyPath: quest
       value: 
       objectReference: {fileID: 11400000, guid: aa7960333daf7a941915ef50aea28425, type: 2}
+    - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: 'checkpoints1.Array.data[0]'
       value: 
