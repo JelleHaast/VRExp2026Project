@@ -63,7 +63,6 @@ GameObject:
   - component: {fileID: 8095764305519775628}
   - component: {fileID: 5635154142647194409}
   - component: {fileID: 2853099495047982650}
-  - component: {fileID: 194612780079690158}
   m_Layer: 2
   m_Name: XR Origin (XR Rig)
   m_TagString: Hider
@@ -130,7 +129,7 @@ CharacterController:
   m_StepOffset: 0.5
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0.06, y: 1.79, z: 0}
+  m_Center: {x: 0.06, y: 1.77, z: 0}
 --- !u!114 &1125696626269899307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,27 +236,6 @@ MonoBehaviour:
   sceneOmTeLaden: Level0
   questDeath: {fileID: 0}
   respawnManager: {fileID: 0}
---- !u!65 &194612780079690158
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998214411868958333}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.5, y: 4.18, z: 0.5}
-  m_Center: {x: 0.08679591, y: 1.9168298, z: 0.0036934838}
 --- !u!1 &1481552088812228161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2985,6 +2963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 648242285461198679}
   - component: {fileID: 8355900248474789545}
+  - component: {fileID: 9072170723531730875}
   m_Layer: 2
   m_Name: InverntoryAnchor
   m_TagString: Hider
@@ -3023,6 +3002,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BodyFollower
   targetCamera: {fileID: 4890712401117462684}
   heightOffset: -1.3
+--- !u!65 &9072170723531730875
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449565973136575164}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 4.18, z: 0.5}
+  m_Center: {x: 0.08679591, y: 0.6, z: 0.0036934838}
 --- !u!1 &8511851007883657592
 GameObject:
   m_ObjectHideFlags: 0
