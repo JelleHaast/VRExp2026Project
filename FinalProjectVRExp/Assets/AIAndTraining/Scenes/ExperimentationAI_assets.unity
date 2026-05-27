@@ -637,18 +637,22 @@ PrefabInstance:
     - target: {fileID: 624652219944321043, guid: e1f902f2c0fd2494db4bf280ef9ec0fe, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 2f25c2a9ea8b9fe45b88d3ec77a1e850, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 09090a23398163a4096be13878ad228b, type: 3}
+    - target: {fileID: 637587548287689521, guid: e1f902f2c0fd2494db4bf280ef9ec0fe, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6180215251135188254, guid: e1f902f2c0fd2494db4bf280ef9ec0fe, type: 3}
       propertyPath: hider
       value: 
       objectReference: {fileID: 1810040048}
     - target: {fileID: 6180215251135188254, guid: e1f902f2c0fd2494db4bf280ef9ec0fe, type: 3}
       propertyPath: speedMultiplier
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6180215251135188254, guid: e1f902f2c0fd2494db4bf280ef9ec0fe, type: 3}
       propertyPath: rotationMultiplier
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6180215251135188254, guid: e1f902f2c0fd2494db4bf280ef9ec0fe, type: 3}
       propertyPath: hiderSpawnPoints.Array.size
@@ -1076,7 +1080,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ac668c60c22d65547b43f402c840503b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
