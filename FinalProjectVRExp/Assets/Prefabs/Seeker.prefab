@@ -161,14 +161,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44fe12d9c66f4944fad5fde2c27832ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckpointPatrol
-  checkpoints:
+  checkpoints1:
   - {fileID: 0}
   - {fileID: 0}
+  checkpoints2:
   - {fileID: 0}
   - {fileID: 0}
+  quest: {fileID: 0}
   reachRadius: 1.5
   waitTime: 20
   seekerAgent: {fileID: 684409417885963094}
+  targetTag: Hider
+  maxDetectionDistance: 15
+  fieldOfViewAngle: 180
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  normalSpeed: 3.5
+  chaseSpeed: 5
 --- !u!54 &7213120031093113414
 Rigidbody:
   m_ObjectHideFlags: 0
