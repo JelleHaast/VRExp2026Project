@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 71611870463963017}
   - component: {fileID: 969036498399590903}
   - component: {fileID: 5738388265846206377}
+  - component: {fileID: 1497679906429592466}
   m_Layer: 0
   m_Name: Seeker
   m_TagString: Seeker
@@ -39,7 +40,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -109.5, y: 2.48, z: 18.69478}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5026854340722272913}
@@ -103,17 +104,17 @@ MonoBehaviour:
   - Obstacle
   m_RaysPerDirection: 20
   m_MaxRayDegrees: 90
-  m_SphereCastRadius: 0.4
+  m_SphereCastRadius: 0.25
   m_RayLength: 20
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 31
   m_ObservationStacks: 1
   m_AlternatingRayOrder: 1
   m_UseBatchedRaycasts: 0
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
-  m_StartVerticalOffset: 0.1
+  m_StartVerticalOffset: -0.4
   m_EndVerticalOffset: 0
 --- !u!114 &684409417885963094
 MonoBehaviour:
@@ -131,7 +132,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  rotationMultiplier: 4
+  rotationMultiplier: 3
   speedMultiplier: 7
   spawner: {fileID: 0}
 --- !u!114 &7980009781216359136
@@ -169,16 +170,16 @@ MonoBehaviour:
   - {fileID: 0}
   quest: {fileID: 11400000, guid: aa7960333daf7a941915ef50aea28425, type: 2}
   reachRadius: 1.5
-  waitTime: 20
+  waitTime: 12
   seekerAgent: {fileID: 684409417885963094}
   targetTag: Hider
-  maxDetectionDistance: 15
+  maxDetectionDistance: 9
   fieldOfViewAngle: 180
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1
-  normalSpeed: 3.5
-  chaseSpeed: 5
+  normalSpeed: 6.5
+  chaseSpeed: 7
 --- !u!54 &7213120031093113414
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -226,9 +227,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1.9751085
+  m_Height: 2.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.012446165, z: 0}
+  m_Center: {x: 0, y: 0.28, z: 0}
 --- !u!195 &3401888744338257726
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -242,8 +243,8 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 240
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -316,10 +317,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 30
+  MinDistance: 5
+  MaxDistance: 25
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -327,8 +328,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.18902397
-      value: 0.9955101
+      time: 0.32655907
+      value: 0.99972534
       inSlope: 0.019523581
       outSlope: 0.019523581
       tangentMode: 0
@@ -336,8 +337,8 @@ AudioSource:
       inWeight: 0.33333334
       outWeight: 0.38400888
     - serializedVersion: 3
-      time: 0.94815063
-      value: 0
+      time: 0.9137573
+      value: 0.016845703
       inSlope: 0.11688946
       outSlope: 0.11688946
       tangentMode: 0
@@ -421,6 +422,20 @@ MonoBehaviour:
   hitmarkerSound: {fileID: 8300000, guid: c2e80704a034ff94ebe17d8ff349a9ed, type: 3}
   Quest: {fileID: 11400000, guid: 953c863d5e8c089499c1da95c28731ee, type: 2}
   manager: {fileID: 0}
+--- !u!114 &1497679906429592466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743886348708290199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7012060c85ba1c2419a822ec991d8f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallRespawn
+  spawnPoint: {fileID: 0}
+  fallThreshold: 30
 --- !u!1001 &8479690502959962841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -852,6 +867,18 @@ PrefabInstance:
     - target: {fileID: 3490026887102541894, guid: e0a2ae8d8ae1c1f4b83e337da0b6f6b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -3.7773535
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490026887102541896, guid: e0a2ae8d8ae1c1f4b83e337da0b6f6b4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490026887102541896, guid: e0a2ae8d8ae1c1f4b83e337da0b6f6b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490026887102541896, guid: e0a2ae8d8ae1c1f4b83e337da0b6f6b4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3490026887102541896, guid: e0a2ae8d8ae1c1f4b83e337da0b6f6b4, type: 3}
       propertyPath: m_LocalPosition.x

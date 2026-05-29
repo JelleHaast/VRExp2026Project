@@ -22584,20 +22584,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7874103078014142846, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
   m_PrefabInstance: {fileID: 2109582984}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2073881061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073881016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7012060c85ba1c2419a822ec991d8f35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FallRespawn
-  spawnPoint: {fileID: 444727101}
-  fallThreshold: 30
 --- !u!1 &2074879335
 GameObject:
   m_ObjectHideFlags: 0
@@ -23552,50 +23538,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 71611870463963017, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: MaxDistance
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 71611870463963017, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: MinDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 71611870463963017, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 71611870463963017, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
-      value: 0.32655907
-      objectReference: {fileID: 0}
-    - target: {fileID: 71611870463963017, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
-      value: 0.9137573
-      objectReference: {fileID: 0}
-    - target: {fileID: 71611870463963017, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value
-      value: 0.99972534
-      objectReference: {fileID: 0}
-    - target: {fileID: 71611870463963017, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
-      value: 0.016845703
-      objectReference: {fileID: 0}
     - target: {fileID: 684409417885963094, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 2079694309}
-    - target: {fileID: 684409417885963094, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: rotationMultiplier
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3401888744338257726, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: m_AngularSpeed
-      value: 240
-      objectReference: {fileID: 0}
-    - target: {fileID: 3401888744338257726, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0.5
-      objectReference: {fileID: 0}
+    - target: {fileID: 1497679906429592466, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 444727101}
     - target: {fileID: 5738388265846206377, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: manager
       value: 
@@ -23606,7 +23556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7874103078014142846, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.48
+      value: 88.76
       objectReference: {fileID: 0}
     - target: {fileID: 7874103078014142846, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23614,7 +23564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7874103078014142846, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -80.76
+      value: -67.41
       objectReference: {fileID: 0}
     - target: {fileID: 7874103078014142846, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23645,22 +23595,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: waitTime
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: chaseSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: normalSpeed
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      propertyPath: maxDetectionDistance
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209575880020134769, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
       propertyPath: 'checkpoints1.Array.data[0]'
       value: 
       objectReference: {fileID: 1783319304}
@@ -23679,10 +23613,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6743886348708290199, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2073881061}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b2ccc76f22728745a0c7a08e462dea0, type: 3}
 --- !u!4 &2133089460 stripped
 Transform:
