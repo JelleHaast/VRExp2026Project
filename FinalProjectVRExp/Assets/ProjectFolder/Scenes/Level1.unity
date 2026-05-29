@@ -21172,6 +21172,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.938
       objectReference: {fileID: 0}
+    - target: {fileID: 2482037174653980351, guid: a2db60b32790b184284d64991325ffdd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.244
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482037174653980351, guid: a2db60b32790b184284d64991325ffdd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482037174653980351, guid: a2db60b32790b184284d64991325ffdd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.395
+      objectReference: {fileID: 0}
     - target: {fileID: 2999963535605804023, guid: a2db60b32790b184284d64991325ffdd, type: 3}
       propertyPath: m_Name
       value: LABOPUZZEL
@@ -21179,6 +21191,10 @@ PrefabInstance:
     - target: {fileID: 3551834665230438356, guid: a2db60b32790b184284d64991325ffdd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.019
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551834665230438356, guid: a2db60b32790b184284d64991325ffdd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.131
       objectReference: {fileID: 0}
     - target: {fileID: 3551834665230438356, guid: a2db60b32790b184284d64991325ffdd, type: 3}
       propertyPath: m_LocalPosition.z
