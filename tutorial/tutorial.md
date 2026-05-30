@@ -1,7 +1,7 @@
 # Space escape
 
 ## Team
-Spruyt Sem, Jelle Haast
+Spruyt Sem, Haast Jelle
 
 ## Trailer
 https://youtu.be/AzdMS6IM_eQ
@@ -10,7 +10,7 @@ https://youtu.be/AzdMS6IM_eQ
 In dit verslag wordt de ontwikkeling van het spel "Space Escape" beschreven, een VR-horrorgame gemaakt voor op de Meta Quest 2/3/3s te werken. De speler bevindt zich in een beschadigd ruimteschip en moet ontsnappen aan een alien die aangedreven wordt door een getrainde ML-Agent. Dit verslag dient als een tutorial en demonstreert hoe je een basis VR-omgeving opbouwt in Unity en een ML-Agent traint via curriculum-learning. De installatie, de opbouw van de agent, de trainingsresultaten en de optimalisaties die nodig zijn voor een vlotte VR-ervaring worden hier besproken.
 
 ## Samenvatting
-Na deze tutorial zou de lezer in staat moeten zijn een basis VR project aan te maken en een MLAgent voor in deze omgeving moeten kunnen trainen
+Na deze tutorial zou de lezer in staat moeten zijn een basis VR project aan te maken en een ML-Agent voor in deze omgeving moeten kunnen trainen
 
 ## Methode
 Installaties:
@@ -26,16 +26,16 @@ installatie onnx convertor: pip install onnxconverter-common [voor het converter
 ### Verloop:
 #### Spelers perspectief:
 1. Speler start in controle kamer.
-2. Speler zoekt een keycard om deur te openen.
+2. Speler zoekt een keycard om de deur te openen.
 3. Speler gaat naar de opslagruimte voor een lamp te zoeken.
 4. Agent spawned in en kan speler aanvallen.
-5. Speler zoekt in de opslagruimte naar de keycard e kan zich verstoppen voor de Agent.
+5. Speler zoekt in de opslagruimte naar de keycard en kan zich verstoppen voor de Agent.
 6. Speler gaat naar volgende ruimte met deze keycard.
 7. Speler ziet verschillende monitors in de server ruimte met getallen die hij kan gebruiken bij een numpad in de observatie ruimte.
-8. peler gaat deze nummers ingeven op de numpad in de observatieruimte.
+8. Speler gaat deze nummers ingeven op de numpad in de observatieruimte.
 9. Als laatste moet de speler de Agent verslaan, hiervoor moet hij een serum maken en het wapen nemen.
 
-* volgende stappen kunnen in wilkeurige volgorde
+* volgende stappen kunnen in willekeurige volgorde
 
 ```
 10. speler neemt wapen
@@ -46,7 +46,7 @@ installatie onnx convertor: pip install onnxconverter-common [voor het converter
 14. Gewonnen
 
 #### Agent perspectief
-1. Speler heeft lamp en Agent spawned in.
+1. Speler heeft de lamp en Agent spawned in.
 2. Agent zoekt achter speler en achtervolgt als hij hen ziet.
 3. Als speler keycard heeft en naar volgende ruimte gaat, activeer unity ingebouwde nav agent naar de volgende ruimte.
 * loop
@@ -68,7 +68,7 @@ Agent specificaties:
 | Afstraffing   | Muurcontact                           | −0.5                                                |
 | Afstraffing   | Obstakelcontact                       | Negatief, evenredig met contactduur                 |
 
-- Beschrijving project
+## Beschrijving project
 ### Beschrijving van de objecten
 
 #### Ruimtes
@@ -84,13 +84,13 @@ Agent specificaties:
 - **Keycard (x3)**: Ontgrendelt afgesloten deuren tussen de ruimtes.
     - Door een keycard met de juiste kleur nabij een keycard scanner te houden zal deze een deur openen
 - **Lamp**: Item dat de speler nodig heeft om verder te gaan.
-    - Na eerste keer oprapen hangt deze auomatisch aan de rechterzijde van je lichaam en kan je deze nog altijd vast nemen ook zal hierbij de agent in spawnen.
+    - Na eerste keer oprapen hangt deze automatisch aan de rechterzijde van je lichaam en kan je deze nog altijd vast nemen ook zal hierbij de agent in spawnen.
 - **Serum**: Aangemaakt in het labo, noodzakelijk om de alien te verslaan.
     - Dient op een kogel te worden gegoten voor wanneer deze de alien zal kunnen vermoorden.
 - **Wapen**: Gebruikt in combinatie met het serum om de alien te doden.
     - Dient gebruikt te worden met voorgaande kogel om op de alien te kunnen schieten
-- **NumPad**:  In de observatie ruimte bevind zich een numpad waar de juiste nummers van in de server ruimtes gevonder kunnen worden.
-    - De nummmers kunnen ingegeven worden door met je hand de knoppen in te drukken.
+- **NumPad**:  In de observatie ruimte bevind zich een numpad waar de juiste nummers van in de server ruimtes gevonden kunnen worden.
+    - De nummers kunnen ingegeven worden door met je hand de knoppen in te drukken.
 
 #### Personages
 
@@ -116,11 +116,11 @@ De speler start in een de bestuurderskamer van het schip, er verschijnt iets op 
 ## Gameplay
 - Sluipen en schuilen in je omgeving.
 - Ontdek de kamers van het ship en vind de nodige items.
-- Gebruik maken van eenvoudige puzzels via omgevings interactie.
+- Gebruik maken van eenvoudige puzzels via omgeving interactie.
 - Spanningsopbouw door gebruik van geluid en licht.
 
 ## Opbouw AI
-De alien zal getrained worden via meerdere iteraties en curriculum-learning(= eenvoudig naar moeilijk).
+De alien zal getraind worden via meerdere iteraties en curriculum-learning(= eenvoudig naar moeilijk).
 
 Het doel is dat de gangen als een soort patrouille route te laten dienen via de ingebouwde nav-agent van unity en als er dan bijvoorbeeld een trigger(geluid, oppakken van mission item) gebeurd dan zal deze naar de kamer waar deze voorgekomen is navigeren en dan zal de nav-agent worden uitgeschakeld en zal deze de ruimte doorzoeken gebruik makend van onze eigen getrainde ML-agent over een bepaalde tijd.
 
@@ -128,8 +128,8 @@ Het doel is dat de gangen als een soort patrouille route te laten dienen via de 
 
 - sci-fi ruimteschip en een crisis toestand
 - donkere gangen en kamers met minimale belichting
-- geluids design zal belangrijk zijn aangezien dit de hoofd drijver is naar een spannende ervaring.
-- het gevoel creëren dat je alleen met dit wezen zit opgeloten.
+- geluid design zal belangrijk zijn aangezien dit de hoofd drijver is naar een spannende ervaring.
+- het gevoel creëren dat je alleen met dit wezen zit opgesloten.
 
 ## Doel
 
@@ -137,7 +137,7 @@ Een immersieve horrorervaring creëren in de diepte van de ruimte waar de speler
 
 ## Innovatie
 ###  Waarom AI
-- Een ML-Agent die zelf heeft getrained achter een speler te zoeken.
+- Een ML-Agent die zelf heeft getraind achter een speler te zoeken.
 - De AI is een "single agent" waar de schuiler (speler) tegen moet spelen.
 - Dynamisch gedrag in een horror setting.
 - Nadeel: 
@@ -164,12 +164,12 @@ Een immersieve horrorervaring creëren in de diepte van de ruimte waar de speler
 - de speler kan door met zijn hand naar missie item + grip-click een item missie item oprapen.
 - de speler kan door met zijn hand naar missie item + grip-click een deur openen.
 - Door fysiek te bukken kan de speler onder objecten bewegen en schuilen.
-- interactie vooral omgevings gebonden houden zonder te veel gebruikt van de knoppen buiten de grip knop van de controller.
+- interactie vooral omgeving gebonden houden zonder te veel gebruikt van de knoppen buiten de grip knop van de controller.
 
 -----
 ### afwijkingen tegenover de one-pager
 
-Over het algemeen lijkt het dat er weinig afgeweken is van de one pager, er is een vrij realistisch haalbaar doel weggezet dat we behaald hebben met deze opracht, er was ook al een deel ervaring inverband met de limitaties van en en daarom was de ingebouwde nav agent aan bod gekomen.
+Over het algemeen lijkt het dat er weinig afgeweken is van de one pager, er is een vrij realistisch haalbaar doel weggezet dat we behaald hebben met deze opdracht, er was ook al een deel ervaring in verband met de limitaties hiervan en daarom was de ingebouwde nav agent aan bod gekomen.
 Wel in de kleine details zijn er dingen minder goed gingen/ moeilijker waren dan dat ik verwacht, zoals deuren zijn we voor schuif deuren gegaan en ook bijvoorbeeld het trainen van de AI was toch nog moeilijker dan verwacht om goed te krijgen.
 
 ## Optimalisaties
@@ -186,7 +186,7 @@ Aangezien onze game goed moet kunnen draaien op een stabiel 72fps op de Meta Que
 
 
 ## Resultaten (agent)
- De agent leerde de speler vlot opsporen na voldoende traingstijd en het juist afstemmen van het curriculum-learning. Over het algemeen werkt hij in meerdere omgevingen maar soms kunnen er kleine struikeblokken zijn waar we de omgeving moeten af stemmen op de agent.
+ De agent leerde de speler vlot opsporen na voldoende traingstijd en het juist afstemmen van het curriculum-learning. Over het algemeen werkt hij in meerdere omgevingen maar soms kunnen er kleine struikelblokken zijn waar we de omgeving moeten af stemmen op de agent.
 
 Run1(Lege omgeving):
 ![CumilativeReward](./Afbeeldingen/CumilativeReward/Run1.png)
@@ -194,7 +194,7 @@ Run1(Lege omgeving):
 ![EmptyScene](./Afbeeldingen/Scenes/EmptyScene.png)
 ![BasicScene](./Afbeeldingen/Scenes/BasicScene.png)
 
-Aangezien het snappen van rond bewegen tot ik moet deze kubus met de hider oprapen snel bereikt wordt Zetten we de training direct verder in de basic scene hier geven we de seeker twee extra complexe taken, eerst had ik het open schap in het midden van het speelveld gezet met de hider hier achter en kort erna (aangezien deze verandering niet moeilijk genoeg was) heb ik de afgesloten hoek met de hider/seeker die hier achter spawned. Dit zorgt voor twee grote gedragsveranderingen. Hij leert ontsnappen uit nouw benepen hoeken en ook leert hij van door nouwere doorgangen te bewegen om zijn doel te bereieken. (Deze scene verandering kunnen we zien aan de grote neerval in reward en de sterke steiging van de episode tijd)
+Aangezien het begrijpen van rond bewegen tot ik moet deze kubus met de hider oprapen snel bereikt wordt Zetten we de training direct verder in de basic scene hier geven we de seeker twee extra complexe taken, eerst had ik het open schap in het midden van het speelveld gezet met de hider hier achter en kort erna (aangezien deze verandering niet moeilijk genoeg was) heb ik de afgesloten hoek met de hider/seeker die hier achter spawned. Dit zorgt voor twee grote gedragsveranderingen. Hij leert ontsnappen uit nouw benepen hoeken en ook leert hij van door nouwere doorgangen te bewegen om zijn doel te bereiken. (Deze scene verandering kunnen we zien aan de grote neerval in reward en de sterke stijging van de episode tijd)
 
 
 
@@ -203,9 +203,9 @@ Run2(geavanceerde omgeving):
 ![CumilativeReward](./Afbeeldingen/CumilativeReward/Run2.png)
 ![FullAdvancedScene](./Afbeeldingen/Scenes/FullAdvancedScene.png)
 
-In run2 wordt er geinisialiseert vanaf run1 om het basis gedrag van object awarness en het zoeken van de hider over te nemen in de complexere omgeving.
+In run2 wordt er geïnitialiseerd vanaf run1 om het basis gedrag van object awarness en het zoeken van de hider over te nemen in de complexere omgeving.
 
-De omgeving is moeilijker en moeilijker gemaakt tot aan de finale afbeelding die hier te zien is over de training heen. Doordat de omgeving veranderde en er geen vaste hider positie was, Kunnen we veel pieken en dallen zien tot wanneer deze beginnen af te vlakken in het correcte gedrag.
+De omgeving is moeilijker en moeilijker gemaakt tot aan de finale afbeelding die hier te zien is over de training heen. Doordat de omgeving veranderde en er geen vaste hider positie was, Kunnen we veel pieken en dalen zien tot wanneer deze beginnen af te vlakken in het correcte gedrag.
 
 De inspringen die we zien rond de 600k stappen was omdat ik vanaf hier de agent heb terug gezet naar de 500k checkpoint aangezien de agent in de mist begon te lopen aan de 600K stappen.
 
@@ -216,12 +216,12 @@ Run3(fine tuning):
 ![CumilativeReward](./Afbeeldingen/CumilativeReward/Run3.png)
 Zelfde trainings omgeving als Run2
 
-Aangezien ik geobserveerd had dat de agent nog niet super goed in sommige hoeken terecht kan komen heb ik extra "edge cases" voorzien waarop deze meer betrouwbaar kan rond zoeken. dit kunnen kan geobserveerd warden aan de grote dallen (moeilijke edge cases) en hoe deze een groot deel minder voorkomen over tijd. Eventuele extra training per kamer waarin deze zich zal bewegen zou nog betere resultaten hebben kunnen geven in het finale project maar over het algemeen is de generalisatie over meerdere kamers met de juiste tags al redelijk goed.
+Aangezien ik geobserveerd had dat de agent nog niet super goed in sommige hoeken terecht kan komen heb ik extra "edge cases" voorzien waarop deze meer betrouwbaar kan rond zoeken. dit kunnen kan geobserveerd warden aan de grote dalen (moeilijke edge cases) en hoe deze een groot deel minder voorkomen over tijd. Eventuele extra training per kamer waarin deze zich zal bewegen zou nog betere resultaten hebben kunnen geven in het finale project maar over het algemeen is de generalisatie over meerdere kamers met de juiste tags al redelijk goed.
 
 TestRun hallways:
 ![HallWayNav](./Afbeeldingen/Scenes/HallwayNav.png)
 
-We hebben ook geprobeert de agent te trainen om door gangen te bewegen en zo verschillende ruimtes te laten exploreren maar dit brengt twee grote nadelen met zich mee:
+We hebben ook geprobeerd de agent te trainen om door gangen te bewegen en zo verschillende ruimtes te laten exploreren maar dit brengt twee grote nadelen met zich mee:
 1. Het is gewoon al heel moeilijk om een Agent te trainen die dit gedrag zal vertonen.
 2. Het verminderd speler-agent interactie aangezien de agent waarschijnlijk meer in één ruimte zal aanwezig zijn dan de andere te bezoeken.
 
@@ -237,7 +237,7 @@ Run2: Het doel van deze run was de agent te gaan leren om doorheen een complexer
 Run3: Deze run is gedaan nadat mij opviel dat er nog enkele situaties zijn waar de agent het moeilijk mee heeft om te gaan navigeren, hierbij heb ik ook de agent een hogere snelheid gegeven aangezien het ons opviel dat het anders te makkelijk was om rond de agent te bewegen zonder echt te verstoppen.
 
 
-Persoonlijke visie: We zien de resultaten veel sprongen maken en dan beginnen stabiliseren dit komt overeen met het verwachte gedrag aangezien de omgeving complex en veranderlijk was en de seeker enkel op ray perception en zijn eigen velocity als observaties werkt. Dit zorgt ervoor dat er lange training verwacht wordt met hoge varieteit en grote sprongen in rewards en episode lengte.
+Persoonlijke visie: We zien de resultaten veel sprongen maken en dan beginnen stabiliseren dit komt overeen met het verwachte gedrag aangezien de omgeving complex en veranderlijk was en de seeker enkel op ray perception en zijn eigen velocity als observaties werkt. Dit zorgt ervoor dat er lange training verwacht wordt met hoge variëteit  en grote sprongen in rewards en episode lengte.
 
 Verbeteringen: Eventuele extra fine tune traingen per omgeving zodat de seeker hierbinnen beter kan navigeren. Een eventuele sprint functie had ook wel interessant geweest als de speler bijvoorbeeld aan het lopen was en dat dan de locatie van het geluid als observatie doorgegeven wordt en de seeker zich zo snel mogelijk tot de speler begeeft.
 
