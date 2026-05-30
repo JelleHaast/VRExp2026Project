@@ -3,6 +3,9 @@
 ## Team
 Spruyt Sem, Jelle Haast
 
+## Trailer
+https://youtu.be/AzdMS6IM_eQ
+
 ## Inleiding
 In dit verslag wordt de ontwikkeling van het spel "Space Escape" beschreven, een VR-horrorgame gemaakt voor op de Meta Quest 2/3/3s te werken. De speler bevindt zich in een beschadigd ruimteschip en moet ontsnappen aan een alien die aangedreven wordt door een getrainde ML-Agent. Dit verslag dient als een tutorial en demonstreert hoe je een basis VR-omgeving opbouwt in Unity en een ML-Agent traint via curriculum-learning. De installatie, de opbouw van de agent, de trainingsresultaten en de optimalisaties die nodig zijn voor een vlotte VR-ervaring worden hier besproken.
 
@@ -81,13 +84,13 @@ Agent specificaties:
 - **Keycard (x3)**: Ontgrendelt afgesloten deuren tussen de ruimtes.
     - Door een keycard met de juiste kleur nabij een keycard scanner te houden zal deze een deur openen
 - **Lamp**: Item dat de speler nodig heeft om verder te gaan.
-    - Na eerste keer oprapen hangt deze auomatisch aan de rechterzijde van je lichaam en kan je deze nog altijd vast nemen.
+    - Na eerste keer oprapen hangt deze auomatisch aan de rechterzijde van je lichaam en kan je deze nog altijd vast nemen ook zal hierbij de agent in spawnen.
 - **Serum**: Aangemaakt in het labo, noodzakelijk om de alien te verslaan.
     - Dient op een kogel te worden gegoten voor wanneer deze de alien zal kunnen vermoorden.
 - **Wapen**: Gebruikt in combinatie met het serum om de alien te doden.
     - Dient gebruikt te worden met voorgaande kogel om op de alien te kunnen schieten
 - **NumPad**:  In de observatie ruimte bevind zich een numpad waar de juiste nummers van in de server ruimtes gevonder kunnen worden.
-    - De nummmers kunnen ingegeven worden door met je hand op de knoppen te drukken.
+    - De nummmers kunnen ingegeven worden door met je hand de knoppen in te drukken.
 
 #### Personages
 
@@ -209,11 +212,20 @@ De inspringen die we zien rond de 600k stappen was omdat ik vanaf hier de agent 
 
 
 Run3(fine tuning):
-![Alt text for image](./Afbeeldingen/SceneLength/Run3.png)
-![Alt text for image](./Afbeeldingen/CumilativeReward/Run3.png)
+![SceneLength](./Afbeeldingen/SceneLength/Run3.png)
+![CumilativeReward](./Afbeeldingen/CumilativeReward/Run3.png)
 Zelfde trainings omgeving als Run2
 
 Aangezien ik geobserveerd had dat de agent nog niet super goed in sommige hoeken terecht kan komen heb ik extra "edge cases" voorzien waarop deze meer betrouwbaar kan rond zoeken. dit kunnen kan geobserveerd warden aan de grote dallen (moeilijke edge cases) en hoe deze een groot deel minder voorkomen over tijd. Eventuele extra training per kamer waarin deze zich zal bewegen zou nog betere resultaten hebben kunnen geven in het finale project maar over het algemeen is de generalisatie over meerdere kamers met de juiste tags al redelijk goed.
+
+TestRun hallways:
+![HallWayNav](./Afbeeldingen/Scenes/HallwayNav.png)
+
+We hebben ook geprobeert de agent te trainen om door gangen te bewegen en zo verschillende ruimtes te laten exploreren maar dit brengt twee grote nadelen met zich mee:
+1. Het is gewoon al heel moeilijk om een Agent te trainen die dit gedrag zal vertonen.
+2. Het verminderd speler-agent interactie aangezien de agent waarschijnlijk meer in één ruimte zal aanwezig zijn dan de andere te bezoeken.
+
+Mogelijke oplossingen mochten we een Agent trainen waar zijn doel door de gangen bewegen is: De muren van de gang een andere tag geven die een minder grote afstraffing geeft aan de Agent en langer trainen.
 
 ## Conclusie
 samenvatting: Een ruimteschip waar je via deuren te openen en kleine puzzels op te lossen een Alien moet ontsnappen.
@@ -269,6 +281,13 @@ Robson Cozendey (2023). Sci-Fi Music Loops Pack [Unity asset]. Unity Asset Store
 PULSAR BYTES (2017). Starfield Skybox [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/2d/textures-materials/sky/starfield-skybox-92717
 
 PolyOne Studio (2025). Weapons Pack - Bullets [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/weapons/weapons-pack-bullets-302702
+
+#### Muziek & geluid
+Trailer achtergrond muziek: Haast Jelle (2026). Viola instrumental track.
+Algemene sound effects doorheen het spel: 
+soundskeep (Freesound). (n.d.). Film special effects windmill cog wheel [Audio sound effect]. Pixabay. https://pixabay.com/sound-effects/film-special-effects-windmill-cog-wheel-56776/
+vacuumfan7072 (Freesound). (n.d.). Film special effects elevator opening [Audio sound effect]. Pixabay. https://pixabay.com/sound-effects/film-special-effects-elevator-opening-103640/
+
 
 
 
