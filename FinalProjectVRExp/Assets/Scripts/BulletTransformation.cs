@@ -10,17 +10,15 @@ public class BulletTransformation : MonoBehaviour
     {
         if (!heeftEindstof)
         {
-            Debug.Log("💥 [SUCCESS] Particle botsing met de kogel!");
+            Debug.Log("[SUCCESS] Particle botsing met de kogel!");
             ActiveerKogel();
         }
     }
-
-    // We laten deze erin als reserve
     void OnParticleTrigger()
     {
         if (!heeftEindstof)
         {
-            Debug.Log("💧 [SUCCESS] Particle trigger contact!");
+            Debug.Log("[SUCCESS] Particle trigger contact!");
             ActiveerKogel();
         }
     }
