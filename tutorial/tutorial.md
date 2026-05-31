@@ -42,7 +42,7 @@ installatie onnx convertor: pip install onnxconverter-common [voor het converter
 11. speler gaat het serum maken
 ```
 12. Speler giet serum over kogel
-13. speler dood Agent
+13. Speler dood Agent
 14. Gewonnen
 
 #### Agent perspectief
