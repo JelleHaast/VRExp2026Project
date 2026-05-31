@@ -131,7 +131,7 @@ public class LabMixer : MonoBehaviour
 
     void GietSucces(GameObject flesje, string stofNaam)
     {
-        Debug.Log("🧪 " + stofNaam + " is met succes gegoten!");
+        Debug.Log(stofNaam + " is met succes gegoten!");
         flesje.tag = "Untagged"; // Maakt de fles leeg voor de rest van de game
         CheckOfMinigameKlaarIs();
     }
@@ -140,7 +140,7 @@ public class LabMixer : MonoBehaviour
     {
         if (heeftStofA && heeftStofB && heeftStofC)
         {
-            Debug.Log("🎉 SUCCES! Alle stoffen zijn gemixt!");
+            Debug.Log("SUCCES! Alle stoffen zijn gemixt!");
             
             if (niveau1 != null) niveau1.SetActive(false);
             if (niveau2 != null) niveau2.SetActive(false);
